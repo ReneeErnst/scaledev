@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "scaledev"
+version = "0.0.1"
+dependencies = [
+    "jupyterlab",
+    "numpy",
+    "pandas",
+    "scikit-learn"
+]
+
+[project.optional-dependencies]
+cicd = [
+    "mypy",
+    "pytest",
+    "ruff"
+]
