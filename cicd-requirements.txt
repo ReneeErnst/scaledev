@@ -43,6 +43,10 @@ colorama==0.4.6
     #   pytest
 comm==0.2.2
     # via ipykernel
+contourpy==1.3.1
+    # via matplotlib
+cycler==0.12.1
+    # via matplotlib
 debugpy==1.8.11
     # via ipykernel
 decorator==5.1.1
@@ -55,6 +59,8 @@ executing==2.1.0
     # via stack-data
 fastjsonschema==2.21.1
     # via nbformat
+fonttools==4.55.3
+    # via matplotlib
 fqdn==1.5.1
     # via jsonschema
 h11==0.14.0
@@ -130,10 +136,14 @@ jupyterlab-pygments==0.3.0
     # via nbconvert
 jupyterlab-server==2.27.3
     # via jupyterlab
+kiwisolver==1.4.8
+    # via matplotlib
 markupsafe==3.0.2
     # via
     #   jinja2
     #   nbconvert
+matplotlib==3.10.0
+    # via scaledev (pyproject.toml)
 matplotlib-inline==0.1.7
     # via
     #   ipykernel
@@ -159,6 +169,8 @@ notebook-shim==0.2.4
     # via jupyterlab
 numpy==2.2.1
     # via
+    #   contourpy
+    #   matplotlib
     #   pandas
     #   scaledev (pyproject.toml)
     #   scikit-learn
@@ -173,6 +185,7 @@ packaging==24.2
     #   jupyter-server
     #   jupyterlab
     #   jupyterlab-server
+    #   matplotlib
     #   nbconvert
     #   pytest
 pandas==2.2.3
@@ -181,6 +194,8 @@ pandocfilters==1.5.1
     # via nbconvert
 parso==0.8.4
     # via jedi
+pillow==11.0.0
+    # via matplotlib
 platformdirs==4.3.6
     # via jupyter-core
 pluggy==1.5.0
@@ -199,12 +214,15 @@ pygments==2.18.0
     # via
     #   ipython
     #   nbconvert
+pyparsing==3.2.0
+    # via matplotlib
 pytest==8.3.4
     # via scaledev (pyproject.toml)
 python-dateutil==2.9.0.post0
     # via
     #   arrow
     #   jupyter-client
+    #   matplotlib
     #   pandas
 python-json-logger==3.2.1
     # via jupyter-events
