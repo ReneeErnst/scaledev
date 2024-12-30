@@ -143,7 +143,10 @@ markupsafe==3.0.2
     #   jinja2
     #   nbconvert
 matplotlib==3.10.0
-    # via scaledev (pyproject.toml)
+    # via
+    #   pingouin
+    #   scaledev (pyproject.toml)
+    #   seaborn
 matplotlib-inline==0.1.7
     # via
     #   ipykernel
@@ -172,9 +175,14 @@ numpy==2.2.1
     #   contourpy
     #   matplotlib
     #   pandas
+    #   patsy
+    #   pingouin
     #   scaledev (pyproject.toml)
     #   scikit-learn
     #   scipy
+    #   seaborn
+    #   statsmodels
+    #   xarray
 openpyxl==3.1.5
     # via scaledev (pyproject.toml)
 overrides==7.7.0
@@ -188,14 +196,28 @@ packaging==24.2
     #   matplotlib
     #   nbconvert
     #   pytest
+    #   statsmodels
+    #   xarray
 pandas==2.2.3
-    # via scaledev (pyproject.toml)
+    # via
+    #   pandas-flavor
+    #   pingouin
+    #   scaledev (pyproject.toml)
+    #   seaborn
+    #   statsmodels
+    #   xarray
+pandas-flavor==0.6.0
+    # via pingouin
 pandocfilters==1.5.1
     # via nbconvert
 parso==0.8.4
     # via jedi
+patsy==1.0.1
+    # via statsmodels
 pillow==11.0.0
     # via matplotlib
+pingouin==0.5.5
+    # via scaledev (pyproject.toml)
 platformdirs==4.3.6
     # via jupyter-core
 pluggy==1.5.0
@@ -264,9 +286,16 @@ rpds-py==0.22.3
 ruff==0.8.4
     # via scaledev (pyproject.toml)
 scikit-learn==1.6.0
-    # via scaledev (pyproject.toml)
+    # via
+    #   pingouin
+    #   scaledev (pyproject.toml)
 scipy==1.14.1
-    # via scikit-learn
+    # via
+    #   pingouin
+    #   scikit-learn
+    #   statsmodels
+seaborn==0.13.2
+    # via pingouin
 send2trash==1.8.3
     # via jupyter-server
 six==1.17.0
@@ -279,6 +308,10 @@ soupsieve==2.6
     # via beautifulsoup4
 stack-data==0.6.3
     # via ipython
+statsmodels==0.14.4
+    # via pingouin
+tabulate==0.9.0
+    # via pingouin
 terminado==0.18.1
     # via
     #   jupyter-server
@@ -331,6 +364,8 @@ webencodings==0.5.1
     #   tinycss2
 websocket-client==1.8.0
     # via jupyter-server
+xarray==2024.11.0
+    # via pandas-flavor
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
