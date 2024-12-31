@@ -6,6 +6,7 @@ build-backend = "hatchling.build"
 name = "scaledev"
 version = "0.0.1"
 dependencies = [
+    "factor-analyzer",
     "jupyterlab",
     "matplotlib",
     "numpy",

@@ -55,6 +55,8 @@ et-xmlfile==2.0.0
     # via openpyxl
 executing==2.1.0
     # via stack-data
+factor-analyzer==0.5.1
+    # via scaledev (pyproject.toml)
 fastjsonschema==2.21.1
     # via nbformat
 fonttools==4.55.3
@@ -165,6 +167,7 @@ notebook-shim==0.2.4
 numpy==2.2.1
     # via
     #   contourpy
+    #   factor-analyzer
     #   matplotlib
     #   pandas
     #   patsy
@@ -191,6 +194,7 @@ packaging==24.2
     #   xarray
 pandas==2.2.3
     # via
+    #   factor-analyzer
     #   pandas-flavor
     #   pingouin
     #   scaledev (pyproject.toml)
@@ -272,10 +276,12 @@ rpds-py==0.22.3
     #   referencing
 scikit-learn==1.6.0
     # via
+    #   factor-analyzer
     #   pingouin
     #   scaledev (pyproject.toml)
 scipy==1.14.1
     # via
+    #   factor-analyzer
     #   pingouin
     #   scikit-learn
     #   statsmodels
