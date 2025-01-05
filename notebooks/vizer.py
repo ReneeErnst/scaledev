@@ -27,14 +27,18 @@ def corr_matrix(df: pd.DataFrame, cols: list):
     return corr_style
 
 
-def scree_plot(ev: np.ndarray):
+def scree_plot(common_factors_ev: np.ndarray, max_viz: int = 20):
     plt.scatter(
-    range(1, 14), ev
-)  # Only show the first 13, as a starting point from the Kaiser-Gutterman Criterion
-    plt.plot(range(1, 14), ev)
-    plt.title("Scree Plot")
+        range(1, max_viz + 1), common_factors_ev[:max_viz]
+    )  # Only show the first 13, as a starting point from the Kaiser-Gutterman Criterion
+    plt.plot(range(1, max_viz + 1), common_factors_ev[:max_viz])
+
+    plt.title("Scree Plot - Common Factors Eigen values")
     plt.xlabel("Factors")
     plt.ylabel("Eigenvalue")
     plt.grid()
+
+    # Force x-axis to show only integers
+    plt.xticks(range(1, max_viz + 1))
+
     plt.show()
-    
