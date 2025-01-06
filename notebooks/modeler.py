@@ -143,10 +143,32 @@ def factor_loadings_table(
     if loadings.shape[1] == 1 and not isinstance(item_names[0], list):
         item_names = [item_names]
 
-    data = {}
+    loadings_dict = {}
     for factor_idx, factor_name in enumerate(factor_names):
-        data[factor_name] = pd.Series(
+        loadings_dict[factor_name] = pd.Series(
             loadings[:, factor_idx], index=item_names[factor_idx]
         )
 
-    return pd.DataFrame(data)
+    return pd.DataFrame(loadings_dict)
+
+    
+def get_items_with_low_loadings(loadings: np.ndarray, item_names: list, threshold: float) -> list:
+    """
+    Gets items that have a loading below the threshold for all factors.
+
+    Args:
+        loadings (np.ndarray): The NumPy array containing the factor loadings.
+        item_names (list): A list of item names corresponding to the rows 
+            of the loadings array.
+        threshold (float): The threshold for which you only want features 
+            with loadings above this value. 
+
+    Returns:
+        list: A list of item names with loadings below the threshold on all factors.
+    """
+
+    low_loading_items = []
+    for i, item_name in enumerate(item_names):
+        if all(abs(loading) < threshold for loading in loadings[i, :]):
+            low_loading_items.append(item_name)
+    return low_loading_items
