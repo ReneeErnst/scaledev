@@ -93,44 +93,17 @@ def parallel_analysis(
     return suggested_factors
 
 
-def sort_loadings_with_names(loadings: np.ndarray, item_names: list):
-    """
-    Sorts factor loadings by absolute value within each factor,
-    keeping the item names aligned with the sorted loadings.
-
-    Args:
-        loadings (np.ndarray): The NumPy array containing the factor loadings.
-        item_names (list): A list of item names corresponding to the rows
-                            of the loadings array.
-
-    Returns:
-        tuple: A tuple containing:
-            - np.ndarray: The sorted loadings array.
-            - list: The list of item names sorted according to the loadings.
-    """
-
-    sorted_loadings = np.zeros_like(loadings)
-    sorted_item_names = []  # List to store sorted item names
-    for factor_idx in range(loadings.shape[1]):
-        factor_loadings = loadings[:, factor_idx]
-        sorted_indices = np.argsort(np.abs(factor_loadings))[::-1]
-        sorted_loadings[:, factor_idx] = factor_loadings[sorted_indices]
-        sorted_item_names.append(
-            [item_names[i] for i in sorted_indices]
-        )  # Sort item names
-    return sorted_loadings, sorted_item_names
-
-
 def factor_loadings_table(
-    loadings: np.ndarray, item_names: list, factor_names: list
+    loadings: np.ndarray, item_names: pd.Index | list, factor_names: list
 ) -> pd.DataFrame:
     """
     Creates a pandas DataFrame table of sorted factor loadings.
 
     Args:
         loadings (np.ndarray): The NumPy array containing the factor loadings.
-        item_names (list): A list of lists, where each inner list contains
-            the item names for a specific factor, sorted according to the loadings.
+        item_names (pd.Index | list): A pandas Index or a list of lists,
+            where each inner list contains the item names for a specific factor,
+            sorted according to the loadings.
         factor_names (list): A list of factor names corresponding to the
             columns of the loadings array.
 
@@ -145,8 +118,14 @@ def factor_loadings_table(
 
     loadings_dict = {}
     for factor_idx, factor_name in enumerate(factor_names):
+        # Use item_names directly if it's a pd.Index
+        if isinstance(item_names, pd.Index):
+            valid_index = item_names
+        else:  # Otherwise, use the appropriate list from item_names
+            valid_index = item_names[factor_idx]
+
         loadings_dict[factor_name] = pd.Series(
-            loadings[:, factor_idx], index=item_names[factor_idx]
+            loadings[:, factor_idx], index=valid_index
         )
 
     return pd.DataFrame(loadings_dict)

@@ -95,18 +95,6 @@ def plot_loadings_heatmap(
 
     plt.figure(figsize=(20, 16))
 
-    # If there's only one factor, ensure item_names is a list of lists
-    if loadings.shape[1] == 1 and not isinstance(item_names[0], list):
-        item_names = [item_names]  # Wrap item_names in another list
-
-    # Set y-axis labels for each factor separately
-    # Combine item names from all factors, BUT remove duplicates
-    yticklabels = []
-    for factor_item_names in item_names:
-        for item_name in factor_item_names:
-            if item_name not in yticklabels:  # Check for duplicates
-                yticklabels.append(item_name)
-
     sns.heatmap(
         loadings,
         annot=True,
@@ -114,7 +102,7 @@ def plot_loadings_heatmap(
         fmt=".2f",
         annot_kws={"size": 8},
         xticklabels=factor_names,
-        yticklabels=yticklabels,
+        yticklabels=item_names,
     )
 
     plt.title("Factor Loadings Heatmap")
