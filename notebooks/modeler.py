@@ -151,17 +151,19 @@ def factor_loadings_table(
 
     return pd.DataFrame(loadings_dict)
 
-    
-def get_items_with_low_loadings(loadings: np.ndarray, item_names: list, threshold: float) -> list:
+
+def get_items_with_low_loadings(
+    loadings: np.ndarray, item_names: list, threshold: float
+) -> list:
     """
     Gets items that have a loading below the threshold for all factors.
 
     Args:
         loadings (np.ndarray): The NumPy array containing the factor loadings.
-        item_names (list): A list of item names corresponding to the rows 
+        item_names (list): A list of item names corresponding to the rows
             of the loadings array.
-        threshold (float): The threshold for which you only want features 
-            with loadings above this value. 
+        threshold (float): The threshold for which you only want features
+            with loadings above this value.
 
     Returns:
         list: A list of item names with loadings below the threshold on all factors.

@@ -107,7 +107,7 @@ def plot_loadings_heatmap(
             if item_name not in yticklabels:  # Check for duplicates
                 yticklabels.append(item_name)
 
-    ax = sns.heatmap(
+    sns.heatmap(
         loadings,
         annot=True,
         cmap="coolwarm",
