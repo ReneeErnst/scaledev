@@ -153,3 +153,40 @@ def get_items_with_low_loadings(
         if all(abs(loading) < threshold for loading in loadings[i, :]):
             low_loading_items.append(item_name)
     return low_loading_items
+
+
+def strongest_loadings(loadings: np.ndarray, item_names: list[str]) -> pd.DataFrame:
+    """
+    Find which factor each item loads most strongly on
+
+    Args:
+        loadings (np.ndarray): The NumPy array containing the factor loadings.
+        item_names (list): A list of item names corresponding to the rows
+            of the loadings array.
+
+    Returns:
+        pd.DataFrame: DataFrame with the items and the strongest factor they load on.
+    """
+    # Loadings to df
+    df_loadings = pd.DataFrame(loadings, index=item_names)
+
+    # Add column names to df_loadings, starting from 1
+    num_factors = df_loadings.shape[1]
+    df_loadings.columns = [i + 1 for i in range(num_factors)]
+
+    # Find the factor with the highest absolute loading for each item
+    strongest_factors = df_loadings.abs().idxmax(axis=1)
+
+    # Create a DataFrame to store the results
+    df_item_factors = pd.DataFrame(
+        {"item": item_names, "strongest_factor": strongest_factors}
+    )
+
+    # Add the actual loadings to the df
+    df_item_factors["loading"] = df_item_factors.apply(
+        lambda row: df_loadings.loc[row["item"], row["strongest_factor"]], axis=1
+    )
+
+    return df_item_factors.reset_index(drop=True).sort_values(
+        by=["strongest_factor", "loading"], ascending=[True, False]
+    )
