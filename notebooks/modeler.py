@@ -5,7 +5,12 @@ import numpy as np
 import vizer
 
 
-def efa(df: pd.DataFrame, n_factors: int | None = None):
+def efa(
+    df: pd.DataFrame,
+    n_factors: int | None = None,
+    method: str = "ml",
+    rotation="oblimin",
+):
     """
     Performs exploratory factor analysis (EFA) with maximum likelihood fitting and
     Oblimin rotation, which is the preferred method with correlated factors.
@@ -19,9 +24,9 @@ def efa(df: pd.DataFrame, n_factors: int | None = None):
         FactorAnalyzer: The fitted FactorAnalyzer object.
     """
     if n_factors:
-        fa = FactorAnalyzer(method="ml", rotation="Oblimin", n_factors=n_factors)
+        fa = FactorAnalyzer(method=method, rotation=rotation, n_factors=n_factors)
     else:
-        fa = FactorAnalyzer(method="ml", rotation="Oblimin")
+        fa = FactorAnalyzer(method=method, rotation=rotation)
 
     fa.fit(df)  # Not using the reverse scored item
 
@@ -190,5 +195,3 @@ def strongest_loadings(loadings: np.ndarray, item_names: list[str]) -> pd.DataFr
     return df_item_factors.reset_index(drop=True).sort_values(
         by=["strongest_factor", "loading"], ascending=[True, False]
     )
-
-
