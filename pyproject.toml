@@ -1,0 +1,23 @@
+[project]
+name = "scaledev"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "factor-analyzer>=0.5.1",
+    "jupyter>=1.1.1",
+    "matplotlib>=3.10.0",
+    "numpy>=2.2.2",
+    "openpyxl>=3.1.5",
+    "pandas>=2.2.3",
+    "pingouin>=0.5.5",
+    "scikit-learn>=1.6.1",
+    "scipy>=1.15.1",
+]
+
+[project.optional-dependencies]
+ci = [
+    "mypy>=1.14.1",
+    "ruff>=0.9.3",
+]

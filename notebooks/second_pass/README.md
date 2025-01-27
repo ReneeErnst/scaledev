@@ -1,0 +1,1 @@
+Given the low correlation between variables that were very similarly worded, we decided to do additional data cleaning for participants who may not have paid full attention, while completing the survey. For example, participants choosing random answers without reading the questions.  
