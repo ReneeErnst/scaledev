@@ -2,7 +2,7 @@ import pandas as pd
 from factor_analyzer.factor_analyzer import FactorAnalyzer
 
 import numpy as np
-import vizer
+from scaledev import vizer
 
 
 def efa(
