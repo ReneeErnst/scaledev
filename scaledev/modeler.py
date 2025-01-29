@@ -223,6 +223,6 @@ def strongest_loadings(loadings: np.ndarray, item_names: list[str]) -> pd.DataFr
         lambda row: df_loadings.loc[row["item"], row["strongest_factor"]], axis=1
     )
 
-    return df_item_factors.reset_index(drop=True).sort_values(
+    return df_item_factors.sort_values(
         by=["strongest_factor", "loading"], ascending=[True, False]
     )
