@@ -1,6 +1,6 @@
 import pandas as pd
 from factor_analyzer.factor_analyzer import FactorAnalyzer
-
+from typing import Tuple
 import numpy as np
 from scaledev import vizer
 
@@ -10,7 +10,7 @@ def efa(
     n_factors: int | None = None,
     method: str = "ml",
     rotation="oblimin",
-):
+) -> FactorAnalyzer:
     """
     Performs exploratory factor analysis (EFA) with maximum likelihood fitting and
     Oblimin rotation, which is the preferred method with correlated factors.
@@ -160,6 +160,37 @@ def get_items_with_low_loadings(
     return low_loading_items
 
 
+def no_low_loadings_solution(
+    df: pd.DataFrame, low_loadings: list, n_factors: int
+) -> Tuple[pd.DataFrame, FactorAnalyzer]:
+    """Re-run efa until we've removed all items with loadings < 0.4.
+
+    Args:
+        df (pd.DataFrame): DataFrame for EFA
+        low_loadings (list): Low Loadings from the initial EFA
+        n_factors (int): Number of factors.
+    Returns:
+        tuple: The dataframe with all the low loading items removed and the EFA model.
+    """
+    while len(low_loadings) > 0:
+        df = df.drop(columns=low_loadings)
+        efa_model = efa(df=df, n_factors=n_factors)
+
+        low_loadings = get_items_with_low_loadings(
+            efa_model.loadings_, df.columns, threshold=0.4
+        )
+        print("Items with low loadings: ")
+        print(low_loadings)
+
+        vizer.plot_loadings_heatmap(
+            loadings=efa_model.loadings_,
+            item_names=df.columns,
+            factor_names=[f"Factor {i + 1}" for i in range(efa_model.n_factors)],
+        )
+
+    return df.reset_index(drop=True), efa_model
+
+
 def strongest_loadings(loadings: np.ndarray, item_names: list[str]) -> pd.DataFrame:
     """
     Find which factor each item loads most strongly on
@@ -192,6 +223,6 @@ def strongest_loadings(loadings: np.ndarray, item_names: list[str]) -> pd.DataFr
         lambda row: df_loadings.loc[row["item"], row["strongest_factor"]], axis=1
     )
 
-    return df_item_factors.reset_index(drop=True).sort_values(
+    return df_item_factors.sort_values(
         by=["strongest_factor", "loading"], ascending=[True, False]
     )
