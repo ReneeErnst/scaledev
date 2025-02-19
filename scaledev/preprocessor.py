@@ -1,7 +1,17 @@
 import pandas as pd
+from statsmodels.stats.outliers_influence import variance_inflation_factor
+from statsmodels.tools.tools import add_constant
 
 
-def clean_columns(df: pd.DataFrame):
+def clean_columns(df: pd.DataFrame) -> pd.DataFrame:
+    """Clean column names in dataframe. 
+
+    Args:
+        df (pd.DataFrame): Dataframe to clean columns for. 
+
+    Returns:
+        pd.DataFrame: Dataframe with cleaned column names.
+    """
     # Remove all characters before "("
     df.columns = df.columns.map(lambda x: x.split("(", 1)[1] if "(" in x else x)
 
@@ -46,3 +56,15 @@ def corrected_item_total_correlations(df: pd.DataFrame) -> pd.DataFrame:
     )
 
     return result_df
+
+
+def vif(df: pd.DataFrame) -> pd.DataFrame:
+    X = add_constant(df)
+
+    # Calculate VIFs
+    df_vif = pd.DataFrame()
+    df_vif["feature"] = X.columns
+    df_vif["VIF"] = [
+        variance_inflation_factor(X.values, i) for i in range(len(X.columns))
+    ]
+    return df_vif

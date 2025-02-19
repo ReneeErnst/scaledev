@@ -64,13 +64,13 @@ nav .nav-link.active {
 		<div class="col-sm-9" style="background-color: #f6f8fa;max-width: 100%;width: 100%;border: 1px solid">
 		<pre style="font-family: monospace">
     # General Factor (ETS) - all items load on it
-    ETS =~ inclusion1 + inclusion2 + inclusion3 + inclusion4 + inclusion5 +             presence1 + presence2 + presence3 + presence4 + presence5 + presence6 +             embod1 + embod2 + embod3 + embod4 + embod5 +             wonder1 + wonder2 + wonder3 + wonder4
+    ETS =~ inclusion1 + inclusion2 + inclusion3 + inclusion4 + inclusion5 +             presence1 + presence2 + presence3 + presence4 + presence5 + presence6 +             embod1 + embod2 + embod3 + embod4 + embod5 +             wonder1 + wonder3
     
     # Specific Factors - items load on their respective factors
     inclusion =~ 1*inclusion1 + inclusion2 + inclusion3 + inclusion4 + inclusion5
     presence =~ 1*presence1 + presence2 + presence3 + presence4 + presence5 + presence6
     embod =~ 1*embod1 + embod2 + embod3 + embod4 + embod5
-    wonder =~ 1*wonder1 + wonder2 + wonder3 + wonder4
+    wonder =~ 1*wonder1 + wonder3
     
     # General and specific factors are uncorrelated
     ETS ~~ 0*inclusion
@@ -97,7 +97,7 @@ nav .nav-link.active {
 	    </h2>
 	    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordion1">
 	      <div class="accordion-body">
-		<div class="row"><div class="col-sm-2">all</div><div class="col-sm-6">presence1, inclusion4, inclusion, presence2, inclusion5, embod5, presence3, presence5, inclusion1, wonder4, wonder, inclusion3, embod1, presence4, embod2, inclusion2, ETS, embod, presence, wonder3, presence6, wonder1, embod4, embod3, wonder2</div></div><div class="row"><div class="col-sm-2">endogenous</div><div class="col-sm-6">presence1, inclusion4, presence2, inclusion5, embod5, presence3, presence5, inclusion1, wonder4, inclusion3, embod1, presence4, embod2, inclusion2, wonder3, presence6, wonder1, embod4, embod3, wonder2</div></div><div class="row"><div class="col-sm-2">exogenous</div><div class="col-sm-6">ETS, inclusion, presence, embod, wonder</div></div><div class="row"><div class="col-sm-2">observed</div><div class="col-sm-6">embod1, embod2, embod3, embod4, embod5, inclusion1, inclusion2, inclusion3, inclusion4, inclusion5, presence1, presence2, presence3, presence4, presence5, presence6, wonder1, wonder2, wonder3, wonder4</div></div><div class="row"><div class="col-sm-2">latent</div><div class="col-sm-6">ETS, inclusion, presence, embod, wonder</div></div><div class="row"><div class="col-sm-2">indicator</div><div class="col-sm-6">presence1, inclusion4, presence2, inclusion5, embod5, presence3, presence5, inclusion1, wonder4, inclusion3, embod1, presence4, embod2, inclusion2, wonder3, presence6, wonder1, embod4, embod3, wonder2</div></div><div class="row"><div class="col-sm-2">output</div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-2">_output</div><div class="col-sm-6">inclusion4, presence2, inclusion5, presence3, inclusion1, wonder4, inclusion3, embod1, inclusion2, presence6, presence1, embod5, presence5, presence4, embod2, wonder3, wonder1, embod4, embod3, wonder2</div></div><div class="row"><div class="col-sm-2">inner</div><div class="col-sm-6">ETS, embod, inclusion, presence, wonder</div></div>
+		<div class="row"><div class="col-sm-2">all</div><div class="col-sm-6">wonder3, ETS, embod2, presence1, inclusion5, embod1, embod4, wonder1, embod, inclusion2, inclusion3, inclusion4, presence4, presence2, presence5, presence, embod3, wonder, inclusion1, embod5, presence3, inclusion, presence6</div></div><div class="row"><div class="col-sm-2">endogenous</div><div class="col-sm-6">wonder3, embod2, presence1, presence2, presence5, presence6, inclusion5, embod1, embod3, embod4, wonder1, inclusion1, embod5, inclusion2, inclusion3, presence3, inclusion4, presence4</div></div><div class="row"><div class="col-sm-2">exogenous</div><div class="col-sm-6">ETS, presence, wonder, embod, inclusion</div></div><div class="row"><div class="col-sm-2">observed</div><div class="col-sm-6">embod1, embod2, embod3, embod4, embod5, inclusion1, inclusion2, inclusion3, inclusion4, inclusion5, presence1, presence2, presence3, presence4, presence5, presence6, wonder1, wonder3</div></div><div class="row"><div class="col-sm-2">latent</div><div class="col-sm-6">ETS, presence, wonder, embod, inclusion</div></div><div class="row"><div class="col-sm-2">indicator</div><div class="col-sm-6">wonder3, embod2, presence1, inclusion5, embod1, embod4, wonder1, inclusion2, inclusion3, inclusion4, presence4, presence2, presence5, embod3, inclusion1, embod5, presence3, presence6</div></div><div class="row"><div class="col-sm-2">output</div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-2">_output</div><div class="col-sm-6">wonder3, embod2, presence1, presence2, presence5, presence6, inclusion5, embod1, embod3, embod4, wonder1, inclusion1, embod5, inclusion2, inclusion3, presence3, inclusion4, presence4</div></div><div class="row"><div class="col-sm-2">inner</div><div class="col-sm-6">ETS, embod, inclusion, presence, wonder</div></div>
 	      </div>
 	    </div>
 	  </div>
@@ -127,7 +127,7 @@ nav .nav-link.active {
 	<a class="anchor" id="estimates"></a>
 	<h3>Estimates</h3>
 	<div style="font-family:monospace">
-	<div class="row"><div class='col-sm-2'></div><div class='col-sm-2'></div><div class='col-sm-1'>Estimate</div><div class='col-sm-1'>Std. Estimate</div><div class='col-sm-1'>P-value</div></div><div class="row"><div class='col-sm-2'>Measurement:</div><div class='col-sm-2'></div><div class='col-sm-1'></div><div class='col-sm-1'></div><div class='col-sm-1'></div></div><div class="row"><div class='col-sm-2 text-end'>ETS =~</div><div class='col-sm-2'></div><div class='col-sm-1'></div><div class='col-sm-1'></div><div class='col-sm-1'></div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion1</div><div class='col-sm-1'>1.000</div><div class='col-sm-1'>0.598</div><div class='col-sm-1'>-</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion2</div><div class='col-sm-1'>0.994</div><div class='col-sm-1'>0.570</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion3</div><div class='col-sm-1'>1.152</div><div class='col-sm-1'>0.665</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion4</div><div class='col-sm-1'>1.037</div><div class='col-sm-1'>0.614</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion5</div><div class='col-sm-1'>1.116</div><div class='col-sm-1'>0.667</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence1</div><div class='col-sm-1'>1.117</div><div class='col-sm-1'>0.626</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence2</div><div class='col-sm-1'>1.179</div><div class='col-sm-1'>0.649</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence3</div><div class='col-sm-1'>1.287</div><div class='col-sm-1'>0.698</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence4</div><div class='col-sm-1'>1.251</div><div class='col-sm-1'>0.672</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence5</div><div class='col-sm-1'>1.068</div><div class='col-sm-1'>0.586</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence6</div><div class='col-sm-1'>1.221</div><div class='col-sm-1'>0.677</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod1</div><div class='col-sm-1'>1.034</div><div class='col-sm-1'>0.521</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod2</div><div class='col-sm-1'>1.489</div><div class='col-sm-1'>0.719</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod3</div><div class='col-sm-1'>1.413</div><div class='col-sm-1'>0.711</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod4</div><div class='col-sm-1'>1.408</div><div class='col-sm-1'>0.715</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod5</div><div class='col-sm-1'>1.304</div><div class='col-sm-1'>0.582</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>wonder1</div><div class='col-sm-1'>1.164</div><div class='col-sm-1'>0.687</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>wonder2</div><div class='col-sm-1'>1.210</div><div class='col-sm-1'>0.661</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>wonder3</div><div class='col-sm-1'>1.264</div><div class='col-sm-1'>0.736</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>wonder4</div><div class='col-sm-1'>1.381</div><div class='col-sm-1'>0.687</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'>inclusion =~</div><div class='col-sm-2'></div><div class='col-sm-1'></div><div class='col-sm-1'></div><div class='col-sm-1'></div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion1</div><div class='col-sm-1'>1.000</div><div class='col-sm-1'>0.536</div><div class='col-sm-1'>-</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion2</div><div class='col-sm-1'>1.179</div><div class='col-sm-1'>0.606</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion3</div><div class='col-sm-1'>0.782</div><div class='col-sm-1'>0.404</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion4</div><div class='col-sm-1'>0.750</div><div class='col-sm-1'>0.398</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion5</div><div class='col-sm-1'>0.784</div><div class='col-sm-1'>0.420</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'>presence =~</div><div class='col-sm-2'></div><div class='col-sm-1'></div><div class='col-sm-1'></div><div class='col-sm-1'></div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence1</div><div class='col-sm-1'>1.000</div><div class='col-sm-1'>0.568</div><div class='col-sm-1'>-</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence2</div><div class='col-sm-1'>0.585</div><div class='col-sm-1'>0.326</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence3</div><div class='col-sm-1'>0.975</div><div class='col-sm-1'>0.536</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence4</div><div class='col-sm-1'>0.580</div><div class='col-sm-1'>0.316</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence5</div><div class='col-sm-1'>0.523</div><div class='col-sm-1'>0.291</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence6</div><div class='col-sm-1'>0.548</div><div class='col-sm-1'>0.308</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'>embod =~</div><div class='col-sm-2'></div><div class='col-sm-1'></div><div class='col-sm-1'></div><div class='col-sm-1'></div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod1</div><div class='col-sm-1'>1.000</div><div class='col-sm-1'>0.240</div><div class='col-sm-1'>-</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod2</div><div class='col-sm-1'>1.853</div><div class='col-sm-1'>0.427</div><div class='col-sm-1'>0.001</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod3</div><div class='col-sm-1'>1.650</div><div class='col-sm-1'>0.396</div><div class='col-sm-1'>0.001</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod4</div><div class='col-sm-1'>1.637</div><div class='col-sm-1'>0.397</div><div class='col-sm-1'>0.001</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod5</div><div class='col-sm-1'>0.831</div><div class='col-sm-1'>0.177</div><div class='col-sm-1'>0.021</div></div><div class="row"><div class='col-sm-2 text-end'>wonder =~</div><div class='col-sm-2'></div><div class='col-sm-1'></div><div class='col-sm-1'></div><div class='col-sm-1'></div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>wonder1</div><div class='col-sm-1'>1.000</div><div class='col-sm-1'>0.380</div><div class='col-sm-1'>-</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>wonder2</div><div class='col-sm-1'>-0.121</div><div class='col-sm-1'>-0.043</div><div class='col-sm-1'>0.562</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>wonder3</div><div class='col-sm-1'>1.105</div><div class='col-sm-1'>0.414</div><div class='col-sm-1'>0.376</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>wonder4</div><div class='col-sm-1'>0.181</div><div class='col-sm-1'>0.058</div><div class='col-sm-1'>0.403</div></div><div class="row"><div class='col-sm-2'>Variances:</div><div class='col-sm-2'></div><div class='col-sm-1'></div><div class='col-sm-1'></div><div class='col-sm-1'></div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>ETS</div><div class='col-sm-1'>0.491</div><div class='col-sm-1'>1.000</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion</div><div class='col-sm-1'>0.395</div><div class='col-sm-1'>1.000</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence</div><div class='col-sm-1'>0.505</div><div class='col-sm-1'>1.000</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod</div><div class='col-sm-1'>0.112</div><div class='col-sm-1'>1.000</div><div class='col-sm-1'>0.065</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>wonder</div><div class='col-sm-1'>0.204</div><div class='col-sm-1'>1.000</div><div class='col-sm-1'>0.385</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod1</div><div class='col-sm-1'>1.299</div><div class='col-sm-1'>0.671</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod2</div><div class='col-sm-1'>0.636</div><div class='col-sm-1'>0.302</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod3</div><div class='col-sm-1'>0.653</div><div class='col-sm-1'>0.337</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod4</div><div class='col-sm-1'>0.629</div><div class='col-sm-1'>0.331</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod5</div><div class='col-sm-1'>1.552</div><div class='col-sm-1'>0.630</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion1</div><div class='col-sm-1'>0.488</div><div class='col-sm-1'>0.355</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion2</div><div class='col-sm-1'>0.460</div><div class='col-sm-1'>0.308</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion3</div><div class='col-sm-1'>0.583</div><div class='col-sm-1'>0.395</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion4</div><div class='col-sm-1'>0.650</div><div class='col-sm-1'>0.464</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion5</div><div class='col-sm-1'>0.519</div><div class='col-sm-1'>0.378</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence1</div><div class='col-sm-1'>0.447</div><div class='col-sm-1'>0.286</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence2</div><div class='col-sm-1'>0.766</div><div class='col-sm-1'>0.472</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence3</div><div class='col-sm-1'>0.375</div><div class='col-sm-1'>0.225</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence4</div><div class='col-sm-1'>0.764</div><div class='col-sm-1'>0.449</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence5</div><div class='col-sm-1'>0.932</div><div class='col-sm-1'>0.572</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence6</div><div class='col-sm-1'>0.714</div><div class='col-sm-1'>0.447</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>wonder1</div><div class='col-sm-1'>0.541</div><div class='col-sm-1'>0.384</div><div class='col-sm-1'>0.020</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>wonder2</div><div class='col-sm-1'>0.925</div><div class='col-sm-1'>0.561</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>wonder3</div><div class='col-sm-1'>0.415</div><div class='col-sm-1'>0.287</div><div class='col-sm-1'>0.140</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>wonder4</div><div class='col-sm-1'>1.040</div><div class='col-sm-1'>0.524</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2'>Covariances:</div><div class='col-sm-2'></div><div class='col-sm-1'></div><div class='col-sm-1'></div><div class='col-sm-1'></div></div><div class="row"><div class='col-sm-2 text-end'>ETS ~</div><div class='col-sm-2'></div><div class='col-sm-1'></div><div class='col-sm-1'></div><div class='col-sm-1'></div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>-</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>-</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>-</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>wonder</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>-</div></div><div class="row"><div class='col-sm-2 text-end'>inclusion ~</div><div class='col-sm-2'></div><div class='col-sm-1'></div><div class='col-sm-1'></div><div class='col-sm-1'></div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>-</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>-</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>wonder</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>-</div></div><div class="row"><div class='col-sm-2 text-end'>presence ~</div><div class='col-sm-2'></div><div class='col-sm-1'></div><div class='col-sm-1'></div><div class='col-sm-1'></div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>-</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>wonder</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>-</div></div><div class="row"><div class='col-sm-2 text-end'>embod ~</div><div class='col-sm-2'></div><div class='col-sm-1'></div><div class='col-sm-1'></div><div class='col-sm-1'></div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>wonder</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>-</div></div>
+	<div class="row"><div class='col-sm-2'></div><div class='col-sm-2'></div><div class='col-sm-1'>Estimate</div><div class='col-sm-1'>Std. Estimate</div><div class='col-sm-1'>P-value</div></div><div class="row"><div class='col-sm-2'>Measurement:</div><div class='col-sm-2'></div><div class='col-sm-1'></div><div class='col-sm-1'></div><div class='col-sm-1'></div></div><div class="row"><div class='col-sm-2 text-end'>ETS =~</div><div class='col-sm-2'></div><div class='col-sm-1'></div><div class='col-sm-1'></div><div class='col-sm-1'></div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion1</div><div class='col-sm-1'>1.000</div><div class='col-sm-1'>0.579</div><div class='col-sm-1'>-</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion2</div><div class='col-sm-1'>0.990</div><div class='col-sm-1'>0.549</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion3</div><div class='col-sm-1'>1.173</div><div class='col-sm-1'>0.655</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion4</div><div class='col-sm-1'>1.050</div><div class='col-sm-1'>0.602</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion5</div><div class='col-sm-1'>1.120</div><div class='col-sm-1'>0.648</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence1</div><div class='col-sm-1'>1.191</div><div class='col-sm-1'>0.645</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence2</div><div class='col-sm-1'>1.257</div><div class='col-sm-1'>0.669</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence3</div><div class='col-sm-1'>1.380</div><div class='col-sm-1'>0.725</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence4</div><div class='col-sm-1'>1.345</div><div class='col-sm-1'>0.699</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence5</div><div class='col-sm-1'>1.160</div><div class='col-sm-1'>0.616</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence6</div><div class='col-sm-1'>1.313</div><div class='col-sm-1'>0.705</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod1</div><div class='col-sm-1'>1.017</div><div class='col-sm-1'>0.496</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod2</div><div class='col-sm-1'>1.506</div><div class='col-sm-1'>0.703</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod3</div><div class='col-sm-1'>1.402</div><div class='col-sm-1'>0.683</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod4</div><div class='col-sm-1'>1.424</div><div class='col-sm-1'>0.700</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod5</div><div class='col-sm-1'>1.330</div><div class='col-sm-1'>0.575</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>wonder1</div><div class='col-sm-1'>1.196</div><div class='col-sm-1'>0.683</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>wonder3</div><div class='col-sm-1'>1.304</div><div class='col-sm-1'>0.735</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'>inclusion =~</div><div class='col-sm-2'></div><div class='col-sm-1'></div><div class='col-sm-1'></div><div class='col-sm-1'></div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion1</div><div class='col-sm-1'>1.000</div><div class='col-sm-1'>0.556</div><div class='col-sm-1'>-</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion2</div><div class='col-sm-1'>1.170</div><div class='col-sm-1'>0.624</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion3</div><div class='col-sm-1'>0.788</div><div class='col-sm-1'>0.423</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion4</div><div class='col-sm-1'>0.760</div><div class='col-sm-1'>0.418</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion5</div><div class='col-sm-1'>0.806</div><div class='col-sm-1'>0.448</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'>presence =~</div><div class='col-sm-2'></div><div class='col-sm-1'></div><div class='col-sm-1'></div><div class='col-sm-1'></div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence1</div><div class='col-sm-1'>1.000</div><div class='col-sm-1'>0.558</div><div class='col-sm-1'>-</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence2</div><div class='col-sm-1'>0.513</div><div class='col-sm-1'>0.281</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence3</div><div class='col-sm-1'>0.925</div><div class='col-sm-1'>0.500</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence4</div><div class='col-sm-1'>0.481</div><div class='col-sm-1'>0.257</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence5</div><div class='col-sm-1'>0.433</div><div class='col-sm-1'>0.237</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence6</div><div class='col-sm-1'>0.450</div><div class='col-sm-1'>0.249</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'>embod =~</div><div class='col-sm-2'></div><div class='col-sm-1'></div><div class='col-sm-1'></div><div class='col-sm-1'></div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod1</div><div class='col-sm-1'>1.000</div><div class='col-sm-1'>0.291</div><div class='col-sm-1'>-</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod2</div><div class='col-sm-1'>1.603</div><div class='col-sm-1'>0.447</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod3</div><div class='col-sm-1'>1.545</div><div class='col-sm-1'>0.449</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod4</div><div class='col-sm-1'>1.429</div><div class='col-sm-1'>0.419</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod5</div><div class='col-sm-1'>0.809</div><div class='col-sm-1'>0.209</div><div class='col-sm-1'>0.005</div></div><div class="row"><div class='col-sm-2 text-end'>wonder =~</div><div class='col-sm-2'></div><div class='col-sm-1'></div><div class='col-sm-1'></div><div class='col-sm-1'></div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>wonder1</div><div class='col-sm-1'>1.000</div><div class='col-sm-1'>0.476</div><div class='col-sm-1'>-</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>wonder3</div><div class='col-sm-1'>0.722</div><div class='col-sm-1'>0.339</div><div class='col-sm-1'>1.000</div></div><div class="row"><div class='col-sm-2'>Variances:</div><div class='col-sm-2'></div><div class='col-sm-1'></div><div class='col-sm-1'></div><div class='col-sm-1'></div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>ETS</div><div class='col-sm-1'>0.460</div><div class='col-sm-1'>1.000</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion</div><div class='col-sm-1'>0.425</div><div class='col-sm-1'>1.000</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence</div><div class='col-sm-1'>0.488</div><div class='col-sm-1'>1.000</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod</div><div class='col-sm-1'>0.164</div><div class='col-sm-1'>1.000</div><div class='col-sm-1'>0.023</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>wonder</div><div class='col-sm-1'>0.320</div><div class='col-sm-1'>1.000</div><div class='col-sm-1'>1.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod1</div><div class='col-sm-1'>1.297</div><div class='col-sm-1'>0.670</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod2</div><div class='col-sm-1'>0.646</div><div class='col-sm-1'>0.306</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod3</div><div class='col-sm-1'>0.643</div><div class='col-sm-1'>0.332</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod4</div><div class='col-sm-1'>0.636</div><div class='col-sm-1'>0.334</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod5</div><div class='col-sm-1'>1.544</div><div class='col-sm-1'>0.626</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion1</div><div class='col-sm-1'>0.489</div><div class='col-sm-1'>0.356</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion2</div><div class='col-sm-1'>0.461</div><div class='col-sm-1'>0.309</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion3</div><div class='col-sm-1'>0.580</div><div class='col-sm-1'>0.393</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion4</div><div class='col-sm-1'>0.648</div><div class='col-sm-1'>0.463</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion5</div><div class='col-sm-1'>0.521</div><div class='col-sm-1'>0.379</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence1</div><div class='col-sm-1'>0.426</div><div class='col-sm-1'>0.272</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence2</div><div class='col-sm-1'>0.767</div><div class='col-sm-1'>0.473</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence3</div><div class='col-sm-1'>0.375</div><div class='col-sm-1'>0.225</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence4</div><div class='col-sm-1'>0.757</div><div class='col-sm-1'>0.445</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence5</div><div class='col-sm-1'>0.921</div><div class='col-sm-1'>0.565</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence6</div><div class='col-sm-1'>0.705</div><div class='col-sm-1'>0.442</div><div class='col-sm-1'>0.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>wonder1</div><div class='col-sm-1'>0.432</div><div class='col-sm-1'>0.307</div><div class='col-sm-1'>1.000</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>wonder3</div><div class='col-sm-1'>0.500</div><div class='col-sm-1'>0.345</div><div class='col-sm-1'>1.000</div></div><div class="row"><div class='col-sm-2'>Covariances:</div><div class='col-sm-2'></div><div class='col-sm-1'></div><div class='col-sm-1'></div><div class='col-sm-1'></div></div><div class="row"><div class='col-sm-2 text-end'>ETS ~</div><div class='col-sm-2'></div><div class='col-sm-1'></div><div class='col-sm-1'></div><div class='col-sm-1'></div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>inclusion</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>-</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>-</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>-</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>wonder</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>-</div></div><div class="row"><div class='col-sm-2 text-end'>inclusion ~</div><div class='col-sm-2'></div><div class='col-sm-1'></div><div class='col-sm-1'></div><div class='col-sm-1'></div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>presence</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>-</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>-</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>wonder</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>-</div></div><div class="row"><div class='col-sm-2 text-end'>presence ~</div><div class='col-sm-2'></div><div class='col-sm-1'></div><div class='col-sm-1'></div><div class='col-sm-1'></div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>embod</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>-</div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>wonder</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>-</div></div><div class="row"><div class='col-sm-2 text-end'>embod ~</div><div class='col-sm-2'></div><div class='col-sm-1'></div><div class='col-sm-1'></div><div class='col-sm-1'></div></div><div class="row"><div class='col-sm-2 text-end'></div><div class='col-sm-2'>wonder</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>0.000</div><div class='col-sm-1'>-</div></div>
 	</div>
 	<br>
 	<div class="accordion" id="accordion3">
@@ -139,82 +139,147 @@ nav .nav-link.active {
 	    </h2>	
 	    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordion3">
 	      <div class="accordion-body" style="background-color: #f6f8fa;max-width: 100%;width: 100%">
-		<pre style="font-family: monospace">          lval  op        rval  Estimate  Est. Std Std. Err  z-value p-value
-0   inclusion1   ~         ETS   1.00000   0.59798        -        -       -
-1   inclusion1   ~   inclusion   1.00000   0.53592        -        -       -
-2   inclusion2   ~         ETS   0.99386   0.56994  0.07848 12.66444 0.00000
-3   inclusion2   ~   inclusion   1.17912   0.60600  0.13160  8.96008 0.00000
-4   inclusion3   ~         ETS   1.15215   0.66461  0.09086 12.67994 0.00000
-5   inclusion3   ~   inclusion   0.78196   0.40425  0.10247  7.63128 0.00000
-6   inclusion4   ~         ETS   1.03664   0.61408  0.08805 11.77368 0.00000
-7   inclusion4   ~   inclusion   0.74988   0.39811  0.10416  7.19923 0.00000
-8   inclusion5   ~         ETS   1.11592   0.66732  0.08671 12.86885 0.00000
-9   inclusion5   ~   inclusion   0.78435   0.42036  0.09931  7.89767 0.00000
-10   presence1   ~         ETS   1.11732   0.62594  0.11610  9.62380 0.00000
-11   presence1   ~    presence   1.00000   0.56792        -        -       -
-12   presence2   ~         ETS   1.17912   0.64901  0.11908  9.90186 0.00000
-13   presence2   ~    presence   0.58481   0.32631  0.09578  6.10599 0.00000
-14   presence3   ~         ETS   1.28690   0.69840  0.12337 10.43124 0.00000
-15   presence3   ~    presence   0.97478   0.53628  0.11296  8.62912 0.00000
-16   presence4   ~         ETS   1.25059   0.67179  0.12315 10.15510 0.00000
-17   presence4   ~    presence   0.57990   0.31579  0.09573  6.05794 0.00000
-18   presence5   ~         ETS   1.06832   0.58632  0.11652  9.16863 0.00000
-19   presence5   ~    presence   0.52288   0.29091  0.10072  5.19140 0.00000
-20   presence6   ~         ETS   1.22093   0.67708  0.11955 10.21283 0.00000
-21   presence6   ~    presence   0.54752   0.30781  0.09208  5.94646 0.00000
-22      embod1   ~         ETS   1.03364   0.52068  0.12424  8.31945 0.00000
-23      embod1   ~       embod   1.00000   0.24042        -        -       -
-24      embod2   ~         ETS   1.48873   0.71854  0.13998 10.63493 0.00000
-25      embod2   ~       embod   1.85303   0.42685  0.53991  3.43208 0.00060
-26      embod3   ~         ETS   1.41313   0.71140  0.13380 10.56118 0.00000
-27      embod3   ~       embod   1.64961   0.39635  0.48299  3.41541 0.00064
-28      embod4   ~         ETS   1.40757   0.71537  0.13276 10.60273 0.00000
-29      embod4   ~       embod   1.63701   0.39708  0.47869  3.41976 0.00063
-30      embod5   ~         ETS   1.30382   0.58212  0.14340  9.09233 0.00000
-31      embod5   ~       embod   0.83111   0.17710  0.35956  2.31149 0.02081
-32     wonder1   ~         ETS   1.16354   0.68696  0.11347 10.25426 0.00000
-33     wonder1   ~      wonder   1.00000   0.38019        -        -       -
-34     wonder2   ~         ETS   1.21027   0.66095  0.12118  9.98776 0.00000
-35     wonder2   ~      wonder  -0.12105  -0.04257  0.20856 -0.58040 0.56165
-36     wonder3   ~         ETS   1.26390   0.73604  0.11753 10.75414 0.00000
-37     wonder3   ~      wonder   1.10481   0.41431  1.24670  0.88619 0.37551
-38     wonder4   ~         ETS   1.38088   0.68732  0.13415 10.29384 0.00000
-39     wonder4   ~      wonder   0.18120   0.05808  0.21677  0.83590 0.40321
-40         ETS  ~~   inclusion   0.00000   0.00000        -        -       -
-41         ETS  ~~    presence   0.00000   0.00000        -        -       -
-42         ETS  ~~       embod   0.00000   0.00000        -        -       -
-43         ETS  ~~      wonder   0.00000   0.00000        -        -       -
-44         ETS  ~~         ETS   0.49134   1.00000  0.08291  5.92606 0.00000
-45   inclusion  ~~    presence   0.00000   0.00000        -        -       -
-46   inclusion  ~~       embod   0.00000   0.00000        -        -       -
-47   inclusion  ~~      wonder   0.00000   0.00000        -        -       -
-48   inclusion  ~~   inclusion   0.39464   1.00000  0.07067  5.58399 0.00000
-49    presence  ~~       embod   0.00000   0.00000        -        -       -
-50    presence  ~~      wonder   0.00000   0.00000        -        -       -
-51    presence  ~~    presence   0.50494   1.00000  0.08714  5.79447 0.00000
-52       embod  ~~      wonder   0.00000   0.00000        -        -       -
-53       embod  ~~       embod   0.11192   1.00000  0.06065  1.84544 0.06497
-54      wonder  ~~      wonder   0.20374   1.00000  0.23477  0.86782 0.38549
-55      embod1  ~~      embod1   1.29943   0.67109  0.10259 12.66639 0.00000
-56      embod2  ~~      embod2   0.63593   0.30151  0.07766  8.18860 0.00000
-57      embod3  ~~      embod3   0.65299   0.33681  0.06956  9.38778 0.00000
-58      embod4  ~~      embod4   0.62881   0.33057  0.06767  9.29213 0.00000
-59      embod5  ~~      embod5   1.55229   0.62977  0.12156 12.77019 0.00000
-60  inclusion1  ~~  inclusion1   0.48808   0.35521  0.04994  9.77366 0.00000
-61  inclusion2  ~~  inclusion2   0.46009   0.30794  0.05741  8.01359 0.00000
-62  inclusion3  ~~  inclusion3   0.58307   0.39487  0.05073 11.49355 0.00000
-63  inclusion4  ~~  inclusion4   0.65026   0.46441  0.05476 11.87377 0.00000
-64  inclusion5  ~~  inclusion5   0.51933   0.37798  0.04606 11.27563 0.00000
-65   presence1  ~~   presence1   0.44723   0.28567  0.05721  7.81711 0.00000
-66   presence2  ~~   presence2   0.76600   0.47231  0.06230 12.29623 0.00000
-67   presence3  ~~   presence3   0.37476   0.22464  0.05069  7.39341 0.00000
-68   presence4  ~~   presence4   0.76448   0.44897  0.06245 12.24226 0.00000
-69   presence5  ~~   presence5   0.93241   0.57160  0.07363 12.66371 0.00000
-70   presence6  ~~   presence6   0.71384   0.44681  0.05826 12.25346 0.00000
-71     wonder1  ~~     wonder1   0.54062   0.38354  0.23250  2.32522 0.02006
-72     wonder2  ~~     wonder2   0.92478   0.56134  0.08028 11.51888 0.00000
-73     wonder3  ~~     wonder3   0.41519   0.28658  0.28120  1.47647 0.13982
-74     wonder4  ~~     wonder4   1.03963   0.52421  0.08603 12.08423 0.00000</pre>
+		<pre style="font-family: monospace">          lval  op        rval  Estimate  Est. Std       Std. Err  z-value  \
+0   inclusion1   ~         ETS   1.00000   0.57857              -        -   
+1   inclusion1   ~   inclusion   1.00000   0.55603              -        -   
+2   inclusion2   ~         ETS   0.98980   0.54918        0.08217 12.04642   
+3   inclusion2   ~   inclusion   1.17048   0.62413        0.12464  9.39112   
+4   inclusion3   ~         ETS   1.17280   0.65456        0.09629 12.17929   
+5   inclusion3   ~   inclusion   0.78778   0.42254        0.09835  8.00973   
+6   inclusion4   ~         ETS   1.04980   0.60168        0.09279 11.31336   
+7   inclusion4   ~   inclusion   0.75950   0.41834        0.10019  7.58061   
+8   inclusion5   ~         ETS   1.12038   0.64824        0.09103 12.30811   
+9   inclusion5   ~   inclusion   0.80603   0.44819        0.09636  8.36453   
+10   presence1   ~         ETS   1.19062   0.64534        0.12783  9.31428   
+11   presence1   ~    presence   1.00000   0.55826              -        -   
+12   presence2   ~         ETS   1.25692   0.66936        0.13089  9.60266   
+13   presence2   ~    presence   0.51313   0.28145        0.10480  4.89650   
+14   presence3   ~         ETS   1.37999   0.72460        0.13692 10.07853   
+15   presence3   ~    presence   0.92487   0.50018        0.13532  6.83457   
+16   presence4   ~         ETS   1.34543   0.69926        0.13606  9.88844   
+17   presence4   ~    presence   0.48062   0.25728        0.10377  4.63144   
+18   presence5   ~         ETS   1.16017   0.61605        0.12798  9.06539   
+19   presence5   ~    presence   0.43263   0.23661        0.10862  3.98300   
+20   presence6   ~         ETS   1.31341   0.70471        0.13215  9.93892   
+21   presence6   ~    presence   0.45006   0.24872        0.09983  4.50852   
+22      embod1   ~         ETS   1.01694   0.49563        0.13186  7.71256   
+23      embod1   ~       embod   1.00000   0.29078              -        -   
+24      embod2   ~         ETS   1.50561   0.70307        0.15108  9.96586   
+25      embod2   ~       embod   1.60278   0.44655        0.38483  4.16494   
+26      embod3   ~         ETS   1.40238   0.68305        0.14347  9.77494   
+27      embod3   ~       embod   1.54506   0.44899        0.37283  4.14410   
+28      embod4   ~         ETS   1.42388   0.70015        0.14326  9.93911   
+29      embod4   ~       embod   1.42873   0.41916        0.34592  4.13028   
+30      embod5   ~         ETS   1.33032   0.57466        0.15394  8.64206   
+31      embod5   ~       embod   0.80937   0.20860        0.28810  2.80934   
+32     wonder1   ~         ETS   1.19592   0.68314        0.12202  9.80070   
+33     wonder1   ~      wonder   1.00000   0.47622              -        -   
+34     wonder3   ~         ETS   1.30422   0.73486        0.12684 10.28255   
+35     wonder3   ~      wonder   0.72168   0.33900 10496719.57737  0.00000   
+36         ETS  ~~   inclusion   0.00000   0.00000              -        -   
+37         ETS  ~~    presence   0.00000   0.00000              -        -   
+38         ETS  ~~       embod   0.00000   0.00000              -        -   
+39         ETS  ~~      wonder   0.00000   0.00000              -        -   
+40         ETS  ~~         ETS   0.45994   1.00000        0.08184  5.62025   
+41   inclusion  ~~    presence   0.00000   0.00000              -        -   
+42   inclusion  ~~       embod   0.00000   0.00000              -        -   
+43   inclusion  ~~      wonder   0.00000   0.00000              -        -   
+44   inclusion  ~~   inclusion   0.42480   1.00000        0.07381  5.75557   
+45    presence  ~~       embod   0.00000   0.00000              -        -   
+46    presence  ~~      wonder   0.00000   0.00000              -        -   
+47    presence  ~~    presence   0.48790   1.00000        0.09720  5.01936   
+48       embod  ~~      wonder   0.00000   0.00000              -        -   
+49       embod  ~~       embod   0.16373   1.00000        0.07227  2.26541   
+50      wonder  ~~      wonder   0.31967   1.00000  4649481.61621  0.00000   
+51      embod1  ~~      embod1   1.29695   0.66980        0.10365 12.51259   
+52      embod2  ~~      embod2   0.64602   0.30628        0.07461  8.65908   
+53      embod3  ~~      embod3   0.64336   0.33184        0.07182  8.95806   
+54      embod4  ~~      embod4   0.63551   0.33409        0.06627  9.58999   
+55      embod5  ~~      embod5   1.54364   0.62626        0.12159 12.69595   
+56  inclusion1  ~~  inclusion1   0.48928   0.35609        0.04986  9.81319   
+57  inclusion2  ~~  inclusion2   0.46147   0.30887        0.05684  8.11889   
+58  inclusion3  ~~  inclusion3   0.58032   0.39302        0.05072 11.44261   
+59  inclusion4  ~~  inclusion4   0.64822   0.46296        0.05478 11.83360   
+60  inclusion5  ~~  inclusion5   0.52059   0.37891        0.04654 11.18684   
+61   presence1  ~~   presence1   0.42566   0.27189        0.06584  6.46467   
+62   presence2  ~~   presence2   0.76669   0.47274        0.06233 12.30144   
+63   presence3  ~~   presence3   0.37498   0.22478        0.05385  6.96300   
+64   presence4  ~~   presence4   0.75744   0.44484        0.06218 12.18158   
+65   presence5  ~~   presence5   0.92081   0.56450        0.07283 12.64394   
+66   presence6  ~~   presence6   0.70538   0.44152        0.05803 12.15634   
+67     wonder1  ~~     wonder1   0.43206   0.30653  4649481.61621  0.00000   
+68     wonder3  ~~     wonder3   0.49990   0.34506  2421582.54346  0.00000   
+
+   p-value  
+0        -  
+1        -  
+2  0.00000  
+3  0.00000  
+4  0.00000  
+5  0.00000  
+6  0.00000  
+7  0.00000  
+8  0.00000  
+9  0.00000  
+10 0.00000  
+11       -  
+12 0.00000  
+13 0.00000  
+14 0.00000  
+15 0.00000  
+16 0.00000  
+17 0.00000  
+18 0.00000  
+19 0.00007  
+20 0.00000  
+21 0.00001  
+22 0.00000  
+23       -  
+24 0.00000  
+25 0.00003  
+26 0.00000  
+27 0.00003  
+28 0.00000  
+29 0.00004  
+30 0.00000  
+31 0.00496  
+32 0.00000  
+33       -  
+34 0.00000  
+35 1.00000  
+36       -  
+37       -  
+38       -  
+39       -  
+40 0.00000  
+41       -  
+42       -  
+43       -  
+44 0.00000  
+45       -  
+46       -  
+47 0.00000  
+48       -  
+49 0.02349  
+50 1.00000  
+51 0.00000  
+52 0.00000  
+53 0.00000  
+54 0.00000  
+55 0.00000  
+56 0.00000  
+57 0.00000  
+58 0.00000  
+59 0.00000  
+60 0.00000  
+61 0.00000  
+62 0.00000  
+63 0.00000  
+64 0.00000  
+65 0.00000  
+66 0.00000  
+67 1.00000  
+68 1.00000  </pre>
 	      </div>
 	    </div>
 	  </div>
@@ -233,16 +298,16 @@ nav .nav-link.active {
 Optimization method: L-BFGS-B
 Optimization successful.
 CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
-Objective value: 1.107
-Number of iterations: 106
-Params: 0.994 1.179 1.152 0.782 1.037 0.750 1.116 0.784 1.117 1.179 0.585 1.287 0.975 1.251 0.580 1.068 0.523 1.221 0.548 1.034 1.489 1.853 1.413 1.650 1.408 1.637 1.304 0.831 1.164 1.210 -0.121 1.264 1.105 1.381 0.181 0.491 0.395 0.505 0.112 1.299 0.636 0.653 0.629 1.552 0.488 0.460 0.583 0.650 0.519 0.447 0.766 0.375 0.764 0.932 0.714 0.204 0.541 0.925 0.415 1.040</pre>
+Objective value: 0.910
+Number of iterations: 68
+Params: 0.990 1.170 1.173 0.788 1.050 0.760 1.120 0.806 1.191 1.257 0.513 1.380 0.925 1.345 0.481 1.160 0.433 1.313 0.450 1.017 1.506 1.603 1.402 1.545 1.424 1.429 1.330 0.809 1.196 1.304 0.722 0.460 0.425 0.488 0.164 1.297 0.646 0.643 0.636 1.544 0.489 0.461 0.580 0.648 0.521 0.426 0.767 0.375 0.757 0.921 0.705 0.320 0.432 0.500</pre>
 	      </div>
 	    </div>
 	  </div>
 	</div>
 	<a class="anchor" id="indices"></a>
 	<h3>Fit indices</h3>
-	<table class="table"><thead><tr><th scope='col'>DoF</th><th scope='col'>DoF Baseline</th><th scope='col'>chi2</th><th scope='col'>chi2 p-value</th><th scope='col'>chi2 Baseline</th></tr></thead><tbody><tr><td>150.000</td><td>190.000</td><td>396.414</td><td>0.000</td><td>4471.709</td></tr></tbody></table><table class="table"><thead><tr><th scope='col'>CFI</th><th scope='col'>GFI</th><th scope='col'>AGFI</th><th scope='col'>NFI</th><th scope='col'>TLI</th></tr></thead><tbody><tr><td>0.942</td><td>0.911</td><td>0.888</td><td>0.911</td><td>0.927</td></tr></tbody></table><table class="table"><thead><tr><th scope='col'>RMSEA</th><th scope='col'>AIC</th><th scope='col'>BIC</th><th scope='col'>LogLik</th></tr></thead><tbody><tr><td>0.068</td><td>117.785</td><td>350.617</td><td>1.107</td></tr></tbody></table>
+	<table class="table"><thead><tr><th scope='col'>DoF</th><th scope='col'>DoF Baseline</th><th scope='col'>chi2</th><th scope='col'>chi2 p-value</th><th scope='col'>chi2 Baseline</th></tr></thead><tbody><tr><td>117.000</td><td>153.000</td><td>325.781</td><td>0.000</td><td>4026.771</td></tr></tbody></table><table class="table"><thead><tr><th scope='col'>CFI</th><th scope='col'>GFI</th><th scope='col'>AGFI</th><th scope='col'>NFI</th><th scope='col'>TLI</th></tr></thead><tbody><tr><td>0.946</td><td>0.919</td><td>0.894</td><td>0.919</td><td>0.930</td></tr></tbody></table><table class="table"><thead><tr><th scope='col'>RMSEA</th><th scope='col'>AIC</th><th scope='col'>BIC</th><th scope='col'>LogLik</th></tr></thead><tbody><tr><td>0.071</td><td>106.180</td><td>315.729</td><td>0.910</td></tr></tbody></table>
 	<a class="anchor" id="matrices"></a>
 	<h3>Matrices</h3>
  	<center><h4>Covariance matrix</h4></center>
@@ -273,9 +338,7 @@ type="button" role="tab" aria-controls="modelimplied" aria-selected="false">Mode
       <th>presence5</th>
       <th>presence6</th>
       <th>wonder1</th>
-      <th>wonder2</th>
       <th>wonder3</th>
-      <th>wonder4</th>
     </tr>
   </thead>
   <tbody>
@@ -298,9 +361,7 @@ type="button" role="tab" aria-controls="modelimplied" aria-selected="false">Mode
       <td>0.60</td>
       <td>0.59</td>
       <td>0.63</td>
-      <td>0.62</td>
       <td>0.52</td>
-      <td>0.85</td>
     </tr>
     <tr>
       <th>embod2</th>
@@ -321,9 +382,7 @@ type="button" role="tab" aria-controls="modelimplied" aria-selected="false">Mode
       <td>0.79</td>
       <td>0.92</td>
       <td>0.82</td>
-      <td>1.00</td>
       <td>0.85</td>
-      <td>1.03</td>
     </tr>
     <tr>
       <th>embod3</th>
@@ -344,9 +403,7 @@ type="button" role="tab" aria-controls="modelimplied" aria-selected="false">Mode
       <td>0.69</td>
       <td>0.75</td>
       <td>0.79</td>
-      <td>0.91</td>
       <td>0.88</td>
-      <td>1.01</td>
     </tr>
     <tr>
       <th>embod4</th>
@@ -367,9 +424,7 @@ type="button" role="tab" aria-controls="modelimplied" aria-selected="false">Mode
       <td>0.83</td>
       <td>0.86</td>
       <td>0.72</td>
-      <td>0.88</td>
       <td>0.81</td>
-      <td>1.06</td>
     </tr>
     <tr>
       <th>embod5</th>
@@ -390,9 +445,7 @@ type="button" role="tab" aria-controls="modelimplied" aria-selected="false">Mode
       <td>0.84</td>
       <td>0.76</td>
       <td>0.78</td>
-      <td>0.65</td>
       <td>0.84</td>
-      <td>0.98</td>
     </tr>
     <tr>
       <th>inclusion1</th>
@@ -413,9 +466,7 @@ type="button" role="tab" aria-controls="modelimplied" aria-selected="false">Mode
       <td>0.46</td>
       <td>0.59</td>
       <td>0.68</td>
-      <td>0.66</td>
       <td>0.60</td>
-      <td>0.69</td>
     </tr>
     <tr>
       <th>inclusion2</th>
@@ -436,9 +487,7 @@ type="button" role="tab" aria-controls="modelimplied" aria-selected="false">Mode
       <td>0.47</td>
       <td>0.57</td>
       <td>0.75</td>
-      <td>0.63</td>
       <td>0.65</td>
-      <td>0.75</td>
     </tr>
     <tr>
       <th>inclusion3</th>
@@ -459,9 +508,7 @@ type="button" role="tab" aria-controls="modelimplied" aria-selected="false">Mode
       <td>0.64</td>
       <td>0.74</td>
       <td>0.72</td>
-      <td>0.82</td>
       <td>0.73</td>
-      <td>0.71</td>
     </tr>
     <tr>
       <th>inclusion4</th>
@@ -482,9 +529,7 @@ type="button" role="tab" aria-controls="modelimplied" aria-selected="false">Mode
       <td>0.43</td>
       <td>0.58</td>
       <td>0.62</td>
-      <td>0.63</td>
       <td>0.65</td>
-      <td>0.72</td>
     </tr>
     <tr>
       <th>inclusion5</th>
@@ -505,9 +550,7 @@ type="button" role="tab" aria-controls="modelimplied" aria-selected="false">Mode
       <td>0.50</td>
       <td>0.61</td>
       <td>0.67</td>
-      <td>0.75</td>
       <td>0.76</td>
-      <td>0.77</td>
     </tr>
     <tr>
       <th>presence1</th>
@@ -528,9 +571,7 @@ type="button" role="tab" aria-controls="modelimplied" aria-selected="false">Mode
       <td>0.87</td>
       <td>0.91</td>
       <td>0.63</td>
-      <td>0.62</td>
       <td>0.67</td>
-      <td>0.74</td>
     </tr>
     <tr>
       <th>presence2</th>
@@ -551,9 +592,7 @@ type="button" role="tab" aria-controls="modelimplied" aria-selected="false">Mode
       <td>0.69</td>
       <td>0.87</td>
       <td>0.70</td>
-      <td>0.67</td>
       <td>0.69</td>
-      <td>0.79</td>
     </tr>
     <tr>
       <th>presence3</th>
@@ -574,9 +613,7 @@ type="button" role="tab" aria-controls="modelimplied" aria-selected="false">Mode
       <td>0.92</td>
       <td>1.04</td>
       <td>0.71</td>
-      <td>0.70</td>
       <td>0.81</td>
-      <td>0.85</td>
     </tr>
     <tr>
       <th>presence4</th>
@@ -597,9 +634,7 @@ type="button" role="tab" aria-controls="modelimplied" aria-selected="false">Mode
       <td>0.81</td>
       <td>0.97</td>
       <td>0.63</td>
-      <td>0.66</td>
       <td>0.73</td>
-      <td>0.85</td>
     </tr>
     <tr>
       <th>presence5</th>
@@ -620,9 +655,7 @@ type="button" role="tab" aria-controls="modelimplied" aria-selected="false">Mode
       <td>1.63</td>
       <td>0.85</td>
       <td>0.62</td>
-      <td>0.58</td>
       <td>0.77</td>
-      <td>0.64</td>
     </tr>
     <tr>
       <th>presence6</th>
@@ -643,9 +676,7 @@ type="button" role="tab" aria-controls="modelimplied" aria-selected="false">Mode
       <td>0.85</td>
       <td>1.60</td>
       <td>0.71</td>
-      <td>0.66</td>
       <td>0.82</td>
-      <td>0.83</td>
     </tr>
     <tr>
       <th>wonder1</th>
@@ -666,32 +697,7 @@ type="button" role="tab" aria-controls="modelimplied" aria-selected="false">Mode
       <td>0.62</td>
       <td>0.71</td>
       <td>1.41</td>
-      <td>0.66</td>
       <td>0.95</td>
-      <td>0.82</td>
-    </tr>
-    <tr>
-      <th>wonder2</th>
-      <td>0.62</td>
-      <td>1.00</td>
-      <td>0.91</td>
-      <td>0.88</td>
-      <td>0.65</td>
-      <td>0.66</td>
-      <td>0.63</td>
-      <td>0.82</td>
-      <td>0.63</td>
-      <td>0.75</td>
-      <td>0.62</td>
-      <td>0.67</td>
-      <td>0.70</td>
-      <td>0.66</td>
-      <td>0.58</td>
-      <td>0.66</td>
-      <td>0.66</td>
-      <td>1.65</td>
-      <td>0.73</td>
-      <td>0.72</td>
     </tr>
     <tr>
       <th>wonder3</th>
@@ -712,32 +718,7 @@ type="button" role="tab" aria-controls="modelimplied" aria-selected="false">Mode
       <td>0.77</td>
       <td>0.82</td>
       <td>0.95</td>
-      <td>0.73</td>
       <td>1.45</td>
-      <td>0.90</td>
-    </tr>
-    <tr>
-      <th>wonder4</th>
-      <td>0.85</td>
-      <td>1.03</td>
-      <td>1.01</td>
-      <td>1.06</td>
-      <td>0.98</td>
-      <td>0.69</td>
-      <td>0.75</td>
-      <td>0.71</td>
-      <td>0.72</td>
-      <td>0.77</td>
-      <td>0.74</td>
-      <td>0.79</td>
-      <td>0.85</td>
-      <td>0.85</td>
-      <td>0.64</td>
-      <td>0.83</td>
-      <td>0.82</td>
-      <td>0.72</td>
-      <td>0.90</td>
-      <td>1.98</td>
     </tr>
   </tbody>
 </table></div><div class="tab-pane fade " id="modelimplied" role="tabpanel" aria-labelledby="modelimplied-tab"><table border="1" class="dataframe table table-bordered">
@@ -761,134 +742,122 @@ type="button" role="tab" aria-controls="modelimplied" aria-selected="false">Mode
       <th>presence5</th>
       <th>presence6</th>
       <th>wonder1</th>
-      <th>wonder2</th>
       <th>wonder3</th>
-      <th>wonder4</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>embod1</th>
       <td>1.94</td>
-      <td>0.96</td>
+      <td>0.97</td>
+      <td>0.91</td>
       <td>0.90</td>
-      <td>0.90</td>
-      <td>0.76</td>
-      <td>0.51</td>
-      <td>0.50</td>
+      <td>0.75</td>
+      <td>0.47</td>
+      <td>0.46</td>
+      <td>0.55</td>
+      <td>0.49</td>
+      <td>0.52</td>
+      <td>0.56</td>
       <td>0.59</td>
-      <td>0.53</td>
-      <td>0.57</td>
-      <td>0.57</td>
-      <td>0.60</td>
       <td>0.65</td>
-      <td>0.64</td>
+      <td>0.63</td>
       <td>0.54</td>
-      <td>0.62</td>
-      <td>0.59</td>
       <td>0.61</td>
-      <td>0.64</td>
-      <td>0.70</td>
+      <td>0.56</td>
+      <td>0.61</td>
     </tr>
     <tr>
       <th>embod2</th>
-      <td>0.96</td>
+      <td>0.97</td>
       <td>2.11</td>
       <td>1.38</td>
-      <td>1.37</td>
+      <td>1.36</td>
       <td>1.13</td>
+      <td>0.69</td>
+      <td>0.69</td>
+      <td>0.81</td>
       <td>0.73</td>
-      <td>0.73</td>
-      <td>0.84</td>
-      <td>0.76</td>
-      <td>0.82</td>
-      <td>0.82</td>
-      <td>0.86</td>
-      <td>0.94</td>
-      <td>0.91</td>
       <td>0.78</td>
-      <td>0.89</td>
-      <td>0.85</td>
-      <td>0.89</td>
-      <td>0.92</td>
-      <td>1.01</td>
+      <td>0.82</td>
+      <td>0.87</td>
+      <td>0.96</td>
+      <td>0.93</td>
+      <td>0.80</td>
+      <td>0.91</td>
+      <td>0.83</td>
+      <td>0.90</td>
     </tr>
     <tr>
       <th>embod3</th>
-      <td>0.90</td>
+      <td>0.91</td>
       <td>1.38</td>
       <td>1.94</td>
       <td>1.28</td>
       <td>1.06</td>
-      <td>0.69</td>
-      <td>0.69</td>
-      <td>0.80</td>
+      <td>0.65</td>
+      <td>0.64</td>
+      <td>0.76</td>
+      <td>0.68</td>
       <td>0.72</td>
       <td>0.77</td>
-      <td>0.78</td>
-      <td>0.82</td>
+      <td>0.81</td>
       <td>0.89</td>
       <td>0.87</td>
-      <td>0.74</td>
+      <td>0.75</td>
       <td>0.85</td>
-      <td>0.81</td>
+      <td>0.77</td>
       <td>0.84</td>
-      <td>0.88</td>
-      <td>0.96</td>
     </tr>
     <tr>
       <th>embod4</th>
       <td>0.90</td>
-      <td>1.37</td>
+      <td>1.36</td>
       <td>1.28</td>
       <td>1.90</td>
-      <td>1.05</td>
-      <td>0.69</td>
-      <td>0.69</td>
-      <td>0.80</td>
-      <td>0.72</td>
+      <td>1.06</td>
+      <td>0.65</td>
+      <td>0.65</td>
       <td>0.77</td>
-      <td>0.77</td>
+      <td>0.69</td>
+      <td>0.73</td>
+      <td>0.78</td>
       <td>0.82</td>
-      <td>0.89</td>
+      <td>0.90</td>
+      <td>0.88</td>
+      <td>0.76</td>
       <td>0.86</td>
-      <td>0.74</td>
-      <td>0.84</td>
-      <td>0.80</td>
-      <td>0.84</td>
-      <td>0.87</td>
-      <td>0.96</td>
+      <td>0.78</td>
+      <td>0.85</td>
     </tr>
     <tr>
       <th>embod5</th>
-      <td>0.76</td>
+      <td>0.75</td>
       <td>1.13</td>
       <td>1.06</td>
-      <td>1.05</td>
+      <td>1.06</td>
       <td>2.46</td>
-      <td>0.64</td>
-      <td>0.64</td>
-      <td>0.74</td>
-      <td>0.66</td>
-      <td>0.71</td>
+      <td>0.61</td>
+      <td>0.61</td>
       <td>0.72</td>
-      <td>0.76</td>
+      <td>0.64</td>
+      <td>0.69</td>
+      <td>0.73</td>
+      <td>0.77</td>
+      <td>0.84</td>
       <td>0.82</td>
+      <td>0.71</td>
       <td>0.80</td>
-      <td>0.68</td>
-      <td>0.78</td>
-      <td>0.75</td>
-      <td>0.78</td>
-      <td>0.81</td>
-      <td>0.88</td>
+      <td>0.73</td>
+      <td>0.80</td>
     </tr>
     <tr>
       <th>inclusion1</th>
-      <td>0.51</td>
-      <td>0.73</td>
+      <td>0.47</td>
       <td>0.69</td>
-      <td>0.69</td>
-      <td>0.64</td>
+      <td>0.65</td>
+      <td>0.65</td>
+      <td>0.61</td>
       <td>1.37</td>
       <td>0.95</td>
       <td>0.87</td>
@@ -897,90 +866,82 @@ type="button" role="tab" aria-controls="modelimplied" aria-selected="false">Mode
       <td>0.55</td>
       <td>0.58</td>
       <td>0.63</td>
-      <td>0.61</td>
-      <td>0.52</td>
-      <td>0.60</td>
-      <td>0.57</td>
-      <td>0.59</td>
       <td>0.62</td>
-      <td>0.68</td>
+      <td>0.53</td>
+      <td>0.60</td>
+      <td>0.55</td>
+      <td>0.60</td>
     </tr>
     <tr>
       <th>inclusion2</th>
-      <td>0.50</td>
-      <td>0.73</td>
-      <td>0.69</td>
+      <td>0.46</td>
       <td>0.69</td>
       <td>0.64</td>
+      <td>0.65</td>
+      <td>0.61</td>
       <td>0.95</td>
       <td>1.49</td>
       <td>0.93</td>
       <td>0.86</td>
       <td>0.91</td>
-      <td>0.55</td>
-      <td>0.58</td>
+      <td>0.54</td>
+      <td>0.57</td>
       <td>0.63</td>
       <td>0.61</td>
-      <td>0.52</td>
+      <td>0.53</td>
       <td>0.60</td>
-      <td>0.57</td>
+      <td>0.54</td>
       <td>0.59</td>
-      <td>0.62</td>
-      <td>0.67</td>
     </tr>
     <tr>
       <th>inclusion3</th>
-      <td>0.59</td>
-      <td>0.84</td>
-      <td>0.80</td>
-      <td>0.80</td>
-      <td>0.74</td>
+      <td>0.55</td>
+      <td>0.81</td>
+      <td>0.76</td>
+      <td>0.77</td>
+      <td>0.72</td>
       <td>0.87</td>
       <td>0.93</td>
       <td>1.48</td>
       <td>0.82</td>
       <td>0.87</td>
-      <td>0.63</td>
-      <td>0.67</td>
+      <td>0.64</td>
+      <td>0.68</td>
+      <td>0.74</td>
       <td>0.73</td>
+      <td>0.63</td>
       <td>0.71</td>
-      <td>0.60</td>
-      <td>0.69</td>
-      <td>0.66</td>
-      <td>0.69</td>
-      <td>0.72</td>
-      <td>0.78</td>
+      <td>0.65</td>
+      <td>0.70</td>
     </tr>
     <tr>
       <th>inclusion4</th>
-      <td>0.53</td>
-      <td>0.76</td>
-      <td>0.72</td>
-      <td>0.72</td>
-      <td>0.66</td>
+      <td>0.49</td>
+      <td>0.73</td>
+      <td>0.68</td>
+      <td>0.69</td>
+      <td>0.64</td>
       <td>0.81</td>
       <td>0.86</td>
       <td>0.82</td>
       <td>1.40</td>
       <td>0.80</td>
       <td>0.57</td>
-      <td>0.60</td>
-      <td>0.66</td>
-      <td>0.64</td>
-      <td>0.54</td>
-      <td>0.62</td>
-      <td>0.59</td>
-      <td>0.62</td>
-      <td>0.64</td>
-      <td>0.70</td>
+      <td>0.61</td>
+      <td>0.67</td>
+      <td>0.65</td>
+      <td>0.56</td>
+      <td>0.63</td>
+      <td>0.58</td>
+      <td>0.63</td>
     </tr>
     <tr>
       <th>inclusion5</th>
-      <td>0.57</td>
-      <td>0.82</td>
-      <td>0.77</td>
-      <td>0.77</td>
-      <td>0.71</td>
+      <td>0.52</td>
+      <td>0.78</td>
+      <td>0.72</td>
+      <td>0.73</td>
+      <td>0.69</td>
       <td>0.86</td>
       <td>0.91</td>
       <td>0.87</td>
@@ -990,242 +951,178 @@ type="button" role="tab" aria-controls="modelimplied" aria-selected="false">Mode
       <td>0.65</td>
       <td>0.71</td>
       <td>0.69</td>
-      <td>0.59</td>
+      <td>0.60</td>
+      <td>0.68</td>
+      <td>0.62</td>
       <td>0.67</td>
-      <td>0.64</td>
-      <td>0.66</td>
-      <td>0.69</td>
-      <td>0.76</td>
     </tr>
     <tr>
       <th>presence1</th>
-      <td>0.57</td>
+      <td>0.56</td>
       <td>0.82</td>
-      <td>0.78</td>
       <td>0.77</td>
-      <td>0.72</td>
+      <td>0.78</td>
+      <td>0.73</td>
       <td>0.55</td>
-      <td>0.55</td>
-      <td>0.63</td>
+      <td>0.54</td>
+      <td>0.64</td>
       <td>0.57</td>
       <td>0.61</td>
       <td>1.57</td>
       <td>0.94</td>
-      <td>1.20</td>
-      <td>0.98</td>
+      <td>1.21</td>
+      <td>0.97</td>
       <td>0.85</td>
-      <td>0.95</td>
-      <td>0.64</td>
-      <td>0.66</td>
-      <td>0.69</td>
-      <td>0.76</td>
+      <td>0.94</td>
+      <td>0.65</td>
+      <td>0.71</td>
     </tr>
     <tr>
       <th>presence2</th>
-      <td>0.60</td>
-      <td>0.86</td>
+      <td>0.59</td>
+      <td>0.87</td>
+      <td>0.81</td>
       <td>0.82</td>
-      <td>0.82</td>
-      <td>0.76</td>
+      <td>0.77</td>
       <td>0.58</td>
-      <td>0.58</td>
-      <td>0.67</td>
-      <td>0.60</td>
+      <td>0.57</td>
+      <td>0.68</td>
+      <td>0.61</td>
       <td>0.65</td>
       <td>0.94</td>
       <td>1.62</td>
       <td>1.03</td>
       <td>0.90</td>
-      <td>0.77</td>
+      <td>0.78</td>
       <td>0.87</td>
-      <td>0.67</td>
-      <td>0.70</td>
-      <td>0.73</td>
-      <td>0.80</td>
+      <td>0.69</td>
+      <td>0.75</td>
     </tr>
     <tr>
       <th>presence3</th>
       <td>0.65</td>
-      <td>0.94</td>
+      <td>0.96</td>
       <td>0.89</td>
-      <td>0.89</td>
-      <td>0.82</td>
+      <td>0.90</td>
+      <td>0.84</td>
       <td>0.63</td>
       <td>0.63</td>
-      <td>0.73</td>
-      <td>0.66</td>
+      <td>0.74</td>
+      <td>0.67</td>
       <td>0.71</td>
-      <td>1.20</td>
+      <td>1.21</td>
       <td>1.03</td>
       <td>1.67</td>
-      <td>1.08</td>
+      <td>1.07</td>
       <td>0.93</td>
       <td>1.04</td>
-      <td>0.74</td>
-      <td>0.77</td>
-      <td>0.80</td>
-      <td>0.87</td>
+      <td>0.76</td>
+      <td>0.83</td>
     </tr>
     <tr>
       <th>presence4</th>
-      <td>0.64</td>
-      <td>0.91</td>
+      <td>0.63</td>
+      <td>0.93</td>
       <td>0.87</td>
-      <td>0.86</td>
-      <td>0.80</td>
+      <td>0.88</td>
+      <td>0.82</td>
+      <td>0.62</td>
       <td>0.61</td>
-      <td>0.61</td>
-      <td>0.71</td>
-      <td>0.64</td>
+      <td>0.73</td>
+      <td>0.65</td>
       <td>0.69</td>
-      <td>0.98</td>
+      <td>0.97</td>
       <td>0.90</td>
-      <td>1.08</td>
+      <td>1.07</td>
       <td>1.70</td>
-      <td>0.81</td>
-      <td>0.91</td>
-      <td>0.71</td>
+      <td>0.82</td>
+      <td>0.92</td>
       <td>0.74</td>
-      <td>0.78</td>
-      <td>0.85</td>
+      <td>0.81</td>
     </tr>
     <tr>
       <th>presence5</th>
       <td>0.54</td>
-      <td>0.78</td>
-      <td>0.74</td>
-      <td>0.74</td>
-      <td>0.68</td>
-      <td>0.52</td>
-      <td>0.52</td>
+      <td>0.80</td>
+      <td>0.75</td>
+      <td>0.76</td>
+      <td>0.71</td>
+      <td>0.53</td>
+      <td>0.53</td>
+      <td>0.63</td>
+      <td>0.56</td>
       <td>0.60</td>
-      <td>0.54</td>
-      <td>0.59</td>
       <td>0.85</td>
-      <td>0.77</td>
+      <td>0.78</td>
       <td>0.93</td>
-      <td>0.81</td>
+      <td>0.82</td>
       <td>1.63</td>
-      <td>0.79</td>
-      <td>0.61</td>
+      <td>0.80</td>
       <td>0.64</td>
-      <td>0.66</td>
-      <td>0.72</td>
+      <td>0.70</td>
     </tr>
     <tr>
       <th>presence6</th>
-      <td>0.62</td>
-      <td>0.89</td>
+      <td>0.61</td>
+      <td>0.91</td>
       <td>0.85</td>
-      <td>0.84</td>
-      <td>0.78</td>
+      <td>0.86</td>
+      <td>0.80</td>
       <td>0.60</td>
       <td>0.60</td>
-      <td>0.69</td>
-      <td>0.62</td>
-      <td>0.67</td>
-      <td>0.95</td>
+      <td>0.71</td>
+      <td>0.63</td>
+      <td>0.68</td>
+      <td>0.94</td>
       <td>0.87</td>
       <td>1.04</td>
-      <td>0.91</td>
-      <td>0.79</td>
+      <td>0.92</td>
+      <td>0.80</td>
       <td>1.60</td>
-      <td>0.70</td>
-      <td>0.73</td>
-      <td>0.76</td>
-      <td>0.83</td>
+      <td>0.72</td>
+      <td>0.79</td>
     </tr>
     <tr>
       <th>wonder1</th>
-      <td>0.59</td>
-      <td>0.85</td>
-      <td>0.81</td>
-      <td>0.80</td>
-      <td>0.75</td>
-      <td>0.57</td>
-      <td>0.57</td>
-      <td>0.66</td>
-      <td>0.59</td>
-      <td>0.64</td>
-      <td>0.64</td>
-      <td>0.67</td>
-      <td>0.74</td>
-      <td>0.71</td>
-      <td>0.61</td>
-      <td>0.70</td>
-      <td>1.41</td>
-      <td>0.67</td>
-      <td>0.95</td>
+      <td>0.56</td>
       <td>0.83</td>
-    </tr>
-    <tr>
-      <th>wonder2</th>
-      <td>0.61</td>
-      <td>0.89</td>
-      <td>0.84</td>
-      <td>0.84</td>
-      <td>0.78</td>
-      <td>0.59</td>
-      <td>0.59</td>
-      <td>0.69</td>
-      <td>0.62</td>
-      <td>0.66</td>
-      <td>0.66</td>
-      <td>0.70</td>
       <td>0.77</td>
+      <td>0.78</td>
+      <td>0.73</td>
+      <td>0.55</td>
+      <td>0.54</td>
+      <td>0.65</td>
+      <td>0.58</td>
+      <td>0.62</td>
+      <td>0.65</td>
+      <td>0.69</td>
+      <td>0.76</td>
       <td>0.74</td>
       <td>0.64</td>
-      <td>0.73</td>
-      <td>0.67</td>
-      <td>1.65</td>
       <td>0.72</td>
-      <td>0.82</td>
+      <td>1.41</td>
+      <td>0.95</td>
     </tr>
     <tr>
       <th>wonder3</th>
-      <td>0.64</td>
-      <td>0.92</td>
-      <td>0.88</td>
-      <td>0.87</td>
-      <td>0.81</td>
-      <td>0.62</td>
-      <td>0.62</td>
-      <td>0.72</td>
-      <td>0.64</td>
-      <td>0.69</td>
-      <td>0.69</td>
-      <td>0.73</td>
-      <td>0.80</td>
-      <td>0.78</td>
-      <td>0.66</td>
-      <td>0.76</td>
-      <td>0.95</td>
-      <td>0.72</td>
-      <td>1.45</td>
+      <td>0.61</td>
       <td>0.90</td>
-    </tr>
-    <tr>
-      <th>wonder4</th>
-      <td>0.70</td>
-      <td>1.01</td>
-      <td>0.96</td>
-      <td>0.96</td>
-      <td>0.88</td>
-      <td>0.68</td>
-      <td>0.67</td>
-      <td>0.78</td>
-      <td>0.70</td>
-      <td>0.76</td>
-      <td>0.76</td>
-      <td>0.80</td>
-      <td>0.87</td>
+      <td>0.84</td>
       <td>0.85</td>
-      <td>0.72</td>
+      <td>0.80</td>
+      <td>0.60</td>
+      <td>0.59</td>
+      <td>0.70</td>
+      <td>0.63</td>
+      <td>0.67</td>
+      <td>0.71</td>
+      <td>0.75</td>
       <td>0.83</td>
-      <td>0.83</td>
-      <td>0.82</td>
-      <td>0.90</td>
-      <td>1.98</td>
+      <td>0.81</td>
+      <td>0.70</td>
+      <td>0.79</td>
+      <td>0.95</td>
+      <td>1.45</td>
     </tr>
   </tbody>
 </table></div></div><br><center><h4>Model matrices</h4></center><ul class="nav nav-tabs" id="modelmatrices" role="tablist"><li class="nav-item" role="presentation">
@@ -1431,7 +1328,7 @@ type="button" role="tab" aria-controls="LambdaNames" aria-selected="false">Names
   <tbody>
     <tr>
       <th>embod1</th>
-      <td>1.03</td>
+      <td>1.02</td>
       <td>1.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -1439,32 +1336,32 @@ type="button" role="tab" aria-controls="LambdaNames" aria-selected="false">Names
     </tr>
     <tr>
       <th>embod2</th>
-      <td>1.49</td>
-      <td>1.85</td>
+      <td>1.51</td>
+      <td>1.60</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
     </tr>
     <tr>
       <th>embod3</th>
-      <td>1.41</td>
-      <td>1.65</td>
+      <td>1.40</td>
+      <td>1.55</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
     </tr>
     <tr>
       <th>embod4</th>
-      <td>1.41</td>
-      <td>1.64</td>
+      <td>1.42</td>
+      <td>1.43</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
     </tr>
     <tr>
       <th>embod5</th>
-      <td>1.30</td>
-      <td>0.83</td>
+      <td>1.33</td>
+      <td>0.81</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -1481,23 +1378,23 @@ type="button" role="tab" aria-controls="LambdaNames" aria-selected="false">Names
       <th>inclusion2</th>
       <td>0.99</td>
       <td>0.00</td>
-      <td>1.18</td>
+      <td>1.17</td>
       <td>0.00</td>
       <td>0.00</td>
     </tr>
     <tr>
       <th>inclusion3</th>
-      <td>1.15</td>
+      <td>1.17</td>
       <td>0.00</td>
-      <td>0.78</td>
+      <td>0.79</td>
       <td>0.00</td>
       <td>0.00</td>
     </tr>
     <tr>
       <th>inclusion4</th>
-      <td>1.04</td>
+      <td>1.05</td>
       <td>0.00</td>
-      <td>0.75</td>
+      <td>0.76</td>
       <td>0.00</td>
       <td>0.00</td>
     </tr>
@@ -1505,13 +1402,13 @@ type="button" role="tab" aria-controls="LambdaNames" aria-selected="false">Names
       <th>inclusion5</th>
       <td>1.12</td>
       <td>0.00</td>
-      <td>0.78</td>
+      <td>0.81</td>
       <td>0.00</td>
       <td>0.00</td>
     </tr>
     <tr>
       <th>presence1</th>
-      <td>1.12</td>
+      <td>1.19</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>1.00</td>
@@ -1519,75 +1416,59 @@ type="button" role="tab" aria-controls="LambdaNames" aria-selected="false">Names
     </tr>
     <tr>
       <th>presence2</th>
-      <td>1.18</td>
+      <td>1.26</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.58</td>
+      <td>0.51</td>
       <td>0.00</td>
     </tr>
     <tr>
       <th>presence3</th>
-      <td>1.29</td>
+      <td>1.38</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.97</td>
+      <td>0.92</td>
       <td>0.00</td>
     </tr>
     <tr>
       <th>presence4</th>
-      <td>1.25</td>
+      <td>1.35</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.58</td>
+      <td>0.48</td>
       <td>0.00</td>
     </tr>
     <tr>
       <th>presence5</th>
-      <td>1.07</td>
+      <td>1.16</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.52</td>
+      <td>0.43</td>
       <td>0.00</td>
     </tr>
     <tr>
       <th>presence6</th>
-      <td>1.22</td>
+      <td>1.31</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.55</td>
+      <td>0.45</td>
       <td>0.00</td>
     </tr>
     <tr>
       <th>wonder1</th>
-      <td>1.16</td>
+      <td>1.20</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>1.00</td>
     </tr>
     <tr>
-      <th>wonder2</th>
-      <td>1.21</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>-0.12</td>
-    </tr>
-    <tr>
       <th>wonder3</th>
-      <td>1.26</td>
+      <td>1.30</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>1.10</td>
-    </tr>
-    <tr>
-      <th>wonder4</th>
-      <td>1.38</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.18</td>
+      <td>0.72</td>
     </tr>
   </tbody>
 </table></div><div class="tab-pane fade " id="LambdaStart" role="tabpanel" aria-labelledby="LambdaStart-tab"><table border="1" class="dataframe table table-bordered">
@@ -1739,28 +1620,12 @@ type="button" role="tab" aria-controls="LambdaNames" aria-selected="false">Names
       <td>1.00</td>
     </tr>
     <tr>
-      <th>wonder2</th>
-      <td>0.48</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.47</td>
-    </tr>
-    <tr>
       <th>wonder3</th>
       <td>0.44</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.67</td>
-    </tr>
-    <tr>
-      <th>wonder4</th>
-      <td>0.50</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.58</td>
     </tr>
   </tbody>
 </table></div><div class="tab-pane fade " id="LambdaNames" role="tabpanel" aria-labelledby="LambdaNames-tab"><table border="1" class="dataframe table table-bordered">
@@ -1912,28 +1777,12 @@ type="button" role="tab" aria-controls="LambdaNames" aria-selected="false">Names
       <td>_b34</td>
     </tr>
     <tr>
-      <th>wonder2</th>
+      <th>wonder3</th>
       <td>_b35</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>_b36</td>
-    </tr>
-    <tr>
-      <th>wonder3</th>
-      <td>_b37</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>_b38</td>
-    </tr>
-    <tr>
-      <th>wonder4</th>
-      <td>_b39</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>_b40</td>
     </tr>
   </tbody>
 </table></div></div></div><div class="tab-pane fade " id="mxPsi" role="tabpanel" aria-labelledby="mxPsi-tab"><ul class="nav nav-tabs" id="Psisub" role="tablist"><li class="nav-item" role="presentation">
@@ -1959,7 +1808,7 @@ type="button" role="tab" aria-controls="PsiNames" aria-selected="false">Names</b
   <tbody>
     <tr>
       <th>ETS</th>
-      <td>0.49</td>
+      <td>0.46</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -1968,7 +1817,7 @@ type="button" role="tab" aria-controls="PsiNames" aria-selected="false">Names</b
     <tr>
       <th>embod</th>
       <td>0.00</td>
-      <td>0.11</td>
+      <td>0.16</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -1977,7 +1826,7 @@ type="button" role="tab" aria-controls="PsiNames" aria-selected="false">Names</b
       <th>inclusion</th>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.39</td>
+      <td>0.42</td>
       <td>0.00</td>
       <td>0.00</td>
     </tr>
@@ -1986,7 +1835,7 @@ type="button" role="tab" aria-controls="PsiNames" aria-selected="false">Names</b
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.50</td>
+      <td>0.49</td>
       <td>0.00</td>
     </tr>
     <tr>
@@ -1995,7 +1844,7 @@ type="button" role="tab" aria-controls="PsiNames" aria-selected="false">Names</b
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.20</td>
+      <td>0.32</td>
     </tr>
   </tbody>
 </table></div><div class="tab-pane fade " id="PsiStart" role="tabpanel" aria-labelledby="PsiStart-tab"><table border="1" class="dataframe table table-bordered">
@@ -2134,9 +1983,7 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <th>presence5</th>
       <th>presence6</th>
       <th>wonder1</th>
-      <th>wonder2</th>
       <th>wonder3</th>
-      <th>wonder4</th>
     </tr>
   </thead>
   <tbody>
@@ -2160,15 +2007,11 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
     </tr>
     <tr>
       <th>embod2</th>
       <td>0.00</td>
-      <td>0.64</td>
-      <td>0.00</td>
-      <td>0.00</td>
+      <td>0.65</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -2190,9 +2033,7 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <th>embod3</th>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.65</td>
-      <td>0.00</td>
-      <td>0.00</td>
+      <td>0.64</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -2214,9 +2055,7 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.63</td>
-      <td>0.00</td>
-      <td>0.00</td>
+      <td>0.64</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -2238,9 +2077,7 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>1.55</td>
-      <td>0.00</td>
-      <td>0.00</td>
+      <td>1.54</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -2275,8 +2112,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
     </tr>
     <tr>
       <th>inclusion2</th>
@@ -2287,8 +2122,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.46</td>
-      <td>0.00</td>
-      <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -2321,8 +2154,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
     </tr>
     <tr>
       <th>inclusion4</th>
@@ -2335,8 +2166,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.65</td>
-      <td>0.00</td>
-      <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -2367,8 +2196,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
     </tr>
     <tr>
       <th>presence1</th>
@@ -2382,9 +2209,7 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.45</td>
-      <td>0.00</td>
-      <td>0.00</td>
+      <td>0.43</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -2413,8 +2238,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
     </tr>
     <tr>
       <th>presence3</th>
@@ -2431,8 +2254,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.37</td>
-      <td>0.00</td>
-      <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -2459,8 +2280,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
     </tr>
     <tr>
       <th>presence5</th>
@@ -2478,9 +2297,7 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.93</td>
-      <td>0.00</td>
-      <td>0.00</td>
+      <td>0.92</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -2505,8 +2322,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.71</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
     </tr>
     <tr>
       <th>wonder1</th>
@@ -2526,32 +2341,7 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.54</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-    </tr>
-    <tr>
-      <th>wonder2</th>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.92</td>
-      <td>0.00</td>
+      <td>0.43</td>
       <td>0.00</td>
     </tr>
     <tr>
@@ -2573,32 +2363,7 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.00</td>
-      <td>0.42</td>
-      <td>0.00</td>
-    </tr>
-    <tr>
-      <th>wonder4</th>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>1.04</td>
+      <td>0.50</td>
     </tr>
   </tbody>
 </table></div><div class="tab-pane fade " id="ThetaStart" role="tabpanel" aria-labelledby="ThetaStart-tab"><table border="1" class="dataframe table table-bordered">
@@ -2622,17 +2387,13 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <th>presence5</th>
       <th>presence6</th>
       <th>wonder1</th>
-      <th>wonder2</th>
       <th>wonder3</th>
-      <th>wonder4</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>embod1</th>
       <td>0.97</td>
-      <td>0.00</td>
-      <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -2671,16 +2432,12 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
     </tr>
     <tr>
       <th>embod3</th>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.97</td>
-      <td>0.00</td>
-      <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -2717,8 +2474,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
     </tr>
     <tr>
       <th>embod5</th>
@@ -2727,8 +2482,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>1.23</td>
-      <td>0.00</td>
-      <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -2751,8 +2504,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.69</td>
-      <td>0.00</td>
-      <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -2786,8 +2537,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
     </tr>
     <tr>
       <th>inclusion3</th>
@@ -2799,8 +2548,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.74</td>
-      <td>0.00</td>
-      <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -2823,8 +2570,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.70</td>
-      <td>0.00</td>
-      <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -2855,8 +2600,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
     </tr>
     <tr>
       <th>presence1</th>
@@ -2871,8 +2614,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.78</td>
-      <td>0.00</td>
-      <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -2901,8 +2642,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
     </tr>
     <tr>
       <th>presence3</th>
@@ -2919,8 +2658,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.83</td>
-      <td>0.00</td>
-      <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -2947,8 +2684,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
     </tr>
     <tr>
       <th>presence5</th>
@@ -2967,8 +2702,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.82</td>
-      <td>0.00</td>
-      <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -2993,8 +2726,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.80</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
     </tr>
     <tr>
       <th>wonder1</th>
@@ -3016,31 +2747,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.70</td>
       <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-    </tr>
-    <tr>
-      <th>wonder2</th>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.82</td>
-      <td>0.00</td>
-      <td>0.00</td>
     </tr>
     <tr>
       <th>wonder3</th>
@@ -3061,32 +2767,7 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.00</td>
       <td>0.72</td>
-      <td>0.00</td>
-    </tr>
-    <tr>
-      <th>wonder4</th>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.99</td>
     </tr>
   </tbody>
 </table></div><div class="tab-pane fade " id="ThetaNames" role="tabpanel" aria-labelledby="ThetaNames-tab"><table border="1" class="dataframe table table-bordered">
@@ -3110,17 +2791,13 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <th>presence5</th>
       <th>presence6</th>
       <th>wonder1</th>
-      <th>wonder2</th>
       <th>wonder3</th>
-      <th>wonder4</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>embod1</th>
       <td>_c15</td>
-      <td>0.00</td>
-      <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -3159,16 +2836,12 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
     </tr>
     <tr>
       <th>embod3</th>
       <td>0.00</td>
       <td>0.00</td>
       <td>_c17</td>
-      <td>0.00</td>
-      <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -3205,8 +2878,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
     </tr>
     <tr>
       <th>embod5</th>
@@ -3215,8 +2886,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>_c19</td>
-      <td>0.00</td>
-      <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -3251,8 +2920,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
     </tr>
     <tr>
       <th>inclusion2</th>
@@ -3263,8 +2930,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>_c21</td>
-      <td>0.00</td>
-      <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -3297,8 +2962,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
     </tr>
     <tr>
       <th>inclusion4</th>
@@ -3311,8 +2974,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>_c23</td>
-      <td>0.00</td>
-      <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -3343,8 +3004,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
     </tr>
     <tr>
       <th>presence1</th>
@@ -3359,8 +3018,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>_c25</td>
-      <td>0.00</td>
-      <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -3389,8 +3046,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
     </tr>
     <tr>
       <th>presence3</th>
@@ -3407,8 +3062,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>_c27</td>
-      <td>0.00</td>
-      <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -3435,8 +3088,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
     </tr>
     <tr>
       <th>presence5</th>
@@ -3455,8 +3106,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>_c29</td>
-      <td>0.00</td>
-      <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
@@ -3481,8 +3130,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>_c30</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
     </tr>
     <tr>
       <th>wonder1</th>
@@ -3504,31 +3151,6 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>_c32</td>
       <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-    </tr>
-    <tr>
-      <th>wonder2</th>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>_c33</td>
-      <td>0.00</td>
-      <td>0.00</td>
     </tr>
     <tr>
       <th>wonder3</th>
@@ -3549,32 +3171,7 @@ type="button" role="tab" aria-controls="ThetaNames" aria-selected="false">Names<
       <td>0.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>0.00</td>
-      <td>_c34</td>
-      <td>0.00</td>
-    </tr>
-    <tr>
-      <th>wonder4</th>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>_c35</td>
+      <td>_c33</td>
     </tr>
   </tbody>
 </table></div></div></div></div>

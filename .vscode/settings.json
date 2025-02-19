@@ -7,7 +7,10 @@
         "figsize",
         "fontsize",
         "pingouin",
+        "RMSEA",
         "scaledev",
+        "semopy",
+        "semplot",
         "vizer"
     ]
 }
