@@ -4,10 +4,10 @@ from statsmodels.tools.tools import add_constant
 
 
 def clean_columns(df: pd.DataFrame) -> pd.DataFrame:
-    """Clean column names in dataframe. 
+    """Clean column names in dataframe.
 
     Args:
-        df (pd.DataFrame): Dataframe to clean columns for. 
+        df (pd.DataFrame): Dataframe to clean columns for.
 
     Returns:
         pd.DataFrame: Dataframe with cleaned column names.
