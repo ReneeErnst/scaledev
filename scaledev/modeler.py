@@ -1,7 +1,11 @@
+from typing import Tuple
+
+import numpy as np
 import pandas as pd
 from factor_analyzer.factor_analyzer import FactorAnalyzer
-from typing import Tuple
-import numpy as np
+from scipy.stats import ncx2
+from semopy import calc_stats
+
 from scaledev import vizer
 
 
@@ -226,3 +230,36 @@ def strongest_loadings(loadings: np.ndarray, item_names: list[str]) -> pd.DataFr
     return df_item_factors.sort_values(
         by=["strongest_factor", "loading"], ascending=[True, False]
     )
+
+
+def rmsea_90ci(model) -> tuple[str, str]:
+    """Calculate 90% CI for RMSEA
+
+    Args:
+        model (_type_): semopy model
+
+    Returns:
+        tuple[str, str]: Tuple containing the strings with the lower and upper bound of the CI.
+    """
+    stats = calc_stats(model)
+    rmsea = stats["RMSEA"]
+    dof = stats["DoF"]  # Degrees of freedom
+    n = model.n_samples  # Sample size
+
+    # Calculate the non-centrality parameter (lambda)
+    lambda_hat = n * dof * rmsea**2
+
+    # Find the lower and upper bounds of the non-centrality parameter
+    # using the non-central chi-square distribution
+    alpha = 0.1  # For a 90% CI
+    lower_lambda = ncx2.ppf(alpha / 2, dof, lambda_hat)
+    upper_lambda = ncx2.ppf(1 - alpha / 2, dof, lambda_hat)
+
+    # Convert the non-centrality parameters back to RMSEA
+    lower_rmsea = np.sqrt(lower_lambda / (n * dof))
+    upper_rmsea = np.sqrt(upper_lambda / (n * dof))
+    # if lower_lambda is 0, lower_rmsea should also be 0
+    if lower_lambda == 0:
+        lower_rmsea = 0
+
+    return f"{lower_rmsea.item():.3f}", f"{upper_rmsea.item():.3f}"

@@ -68,3 +68,29 @@ def vif(df: pd.DataFrame) -> pd.DataFrame:
         variance_inflation_factor(X.values, i) for i in range(len(X.columns))
     ]
     return df_vif
+
+
+def scale_totals(df: pd.DataFrame, scale_items: list[str]) -> pd.DataFrame:
+    """Add subscale (factor) totals and ETS total to dataframe.
+
+    Args:
+        df (pd.DataFrame): Dataframe to add the total scale values to.
+        scale_items (list[str]): List of scale items - used to filter out non-scale items for total calc.
+
+    Returns:
+        pd.DataFrame: DF with the scale totals added.
+    """
+    # Create the factor and total scores
+    df["inclusion_total"] = df[
+        ["inclusion1", "inclusion2", "inclusion3", "inclusion4", "inclusion5"]
+    ].sum(axis=1)
+    df["presence_total"] = df[
+        ["presence1", "presence2", "presence3", "presence4", "presence5", "presence6"]
+    ].sum(axis=1)
+    df["embod_total"] = df[["embod1", "embod2", "embod3", "embod4", "embod5"]].sum(
+        axis=1
+    )
+    df["wonder_total"] = df[["wonder1", "wonder2", "wonder3", "wonder4"]].sum(axis=1)
+    df["ets_total"] = df[scale_items].sum(axis=1)
+
+    return df

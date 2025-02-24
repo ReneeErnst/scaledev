@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import seaborn as sns
 import scipy.stats as stats
+import seaborn as sns
 
 
 def highlight_corr(val: float):
@@ -159,3 +159,11 @@ def check_normality(df: pd.DataFrame, dist_plot: bool = True, qq_plot: bool = Tr
             plt.show()
 
         print("-" * 40, "\n")
+
+
+def corr_matrix_v2(df: pd.DataFrame, title: str):
+    fig, ax = plt.subplots(figsize=(20, 10))
+    corr_df = df.corr()
+    mask = np.triu(np.ones_like(corr_df, dtype=bool))
+    sns.heatmap(corr_df, annot=True, cmap="Blues", ax=ax, center=0, mask=mask)
+    ax.set_title(title)
