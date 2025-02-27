@@ -2,9 +2,10 @@ from typing import Tuple
 
 import numpy as np
 import pandas as pd
+import statsmodels.api as sm
 from factor_analyzer.factor_analyzer import FactorAnalyzer
-from scipy.stats import ncx2
-from semopy import calc_stats
+from statsmodels.formula.api import ols
+from statsmodels.stats.multicomp import pairwise_tukeyhsd
 
 from scaledev import vizer
 
@@ -232,34 +233,23 @@ def strongest_loadings(loadings: np.ndarray, item_names: list[str]) -> pd.DataFr
     )
 
 
-def rmsea_90ci(model) -> tuple[str, str]:
-    """Calculate 90% CI for RMSEA
+def one_way_anova(df: pd.DataFrame, group_col: str, dv_col: str) -> tuple:
+    """
+    Performs a one-way ANOVA and Tukey's HSD post-hoc test.
 
     Args:
-        model (_type_): semopy model
+        df (pd.DataFrame): The pandas DataFrame containing the data.
+        group_col (str): The name of the column containing the group labels.
+        dv_col (str): The name of the column containing the values for the dependent variable.
 
     Returns:
-        tuple[str, str]: Tuple containing the strings with the lower and upper bound of the CI.
+        tuple: A tuple containing the ANOVA table (statsmodels ANOVA object) and the Tukey's HSD results (statsmodels TukeyHSDResults object).
     """
-    stats = calc_stats(model)
-    rmsea = stats["RMSEA"]
-    dof = stats["DoF"]  # Degrees of freedom
-    n = model.n_samples  # Sample size
+    # Perform one-way ANOVA
+    model = ols(f"{dv_col} ~ C({group_col})", data=df).fit()
+    anova_table = sm.stats.anova_lm(model, typ=1)
 
-    # Calculate the non-centrality parameter (lambda)
-    lambda_hat = n * dof * rmsea**2
+    # Perform Tukey's HSD post-hoc test
+    tukey_results = pairwise_tukeyhsd(df[dv_col], df[group_col])
 
-    # Find the lower and upper bounds of the non-centrality parameter
-    # using the non-central chi-square distribution
-    alpha = 0.1  # For a 90% CI
-    lower_lambda = ncx2.ppf(alpha / 2, dof, lambda_hat)
-    upper_lambda = ncx2.ppf(1 - alpha / 2, dof, lambda_hat)
-
-    # Convert the non-centrality parameters back to RMSEA
-    lower_rmsea = np.sqrt(lower_lambda / (n * dof))
-    upper_rmsea = np.sqrt(upper_lambda / (n * dof))
-    # if lower_lambda is 0, lower_rmsea should also be 0
-    if lower_lambda == 0:
-        lower_rmsea = 0
-
-    return f"{lower_rmsea.item():.3f}", f"{upper_rmsea.item():.3f}"
+    return anova_table, tukey_results
