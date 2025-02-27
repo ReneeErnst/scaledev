@@ -2,10 +2,10 @@ digraph G {
 	overlap=scale splines=true
 	edge [fontsize=12]
 	node [fillcolor="#cae6df" shape=circle style=filled]
-	inclusion [label=inclusion]
 	embod [label=embod]
 	presence [label=presence]
 	wonder [label=wonder]
+	inclusion [label=inclusion]
 	node [shape=box style=""]
 	embod1 [label=embod1]
 	embod2 [label=embod2]
