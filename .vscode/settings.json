@@ -6,11 +6,13 @@
         "eigens",
         "figsize",
         "fontsize",
+        "Pillai's",
         "pingouin",
         "RMSEA",
         "scaledev",
         "semopy",
         "semplot",
+        "subscales",
         "vizer"
     ]
 }

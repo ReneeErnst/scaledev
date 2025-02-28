@@ -3,8 +3,12 @@ from typing import Tuple
 import numpy as np
 import pandas as pd
 import statsmodels.api as sm
+import statsmodels.formula.api as smf
+import statsmodels.stats.api as sms
 from factor_analyzer.factor_analyzer import FactorAnalyzer
 from statsmodels.formula.api import ols
+from statsmodels.multivariate.manova import MANOVA
+from statsmodels.stats.libqsturng import psturng  # Import for Games-Howell
 from statsmodels.stats.multicomp import pairwise_tukeyhsd
 
 from scaledev import vizer
@@ -253,3 +257,186 @@ def one_way_anova(df: pd.DataFrame, group_col: str, dv_col: str) -> tuple:
     tukey_results = pairwise_tukeyhsd(df[dv_col], df[group_col])
 
     return anova_table, tukey_results
+
+
+def welch_anova_and_games_howell(
+    df: pd.DataFrame, group_col: str, dv_col: str
+) -> tuple:
+    """
+    Performs Welch's ANOVA and Games-Howell post-hoc test.
+
+    Args:
+        df (pd.DataFrame): The pandas DataFrame containing the data.
+        group_col (str): The name of the column containing the group labels.
+        dv_col (str): The name of the column containing the values for the dependent variable.
+
+    Returns:
+        tuple: A tuple containing the Welch's ANOVA results (statsmodels results object)
+               and the Games-Howell results (DataFrame). Returns None for Games-Howell
+               if Welch's ANOVA is not significant.
+    """
+
+    # Perform Welch's ANOVA
+    welch_anova_result = sms.anova_oneway(df[dv_col], df[group_col], use_var="unequal")
+
+    # Perform Games-Howell post-hoc test *only if* Welch's ANOVA is significant
+    if welch_anova_result.pvalue < 0.05:
+        games_howell_results = games_howell(df, group_col, dv_col)  # Simplified call
+        return welch_anova_result, games_howell_results
+    else:
+        return welch_anova_result, None
+
+
+def games_howell(df: pd.DataFrame, group_col: str, dv_col: str):
+    """
+    Performs Games-Howell post-hoc test.  Simplified and corrected.
+
+    Args:
+        df (pd.DataFrame): DataFrame containing the data.
+        group_col (str): Name of the group column.
+        dv_col (str): Name of the dependent variable column.
+
+    Returns:
+        pd.DataFrame: Games-Howell results.
+    """
+
+    groups = df[group_col].unique()
+    results = []
+
+    for i in range(len(groups)):
+        for j in range(i + 1, len(groups)):
+            # Correctly extract the data for each group as NumPy arrays
+            group1 = df.loc[df[group_col] == groups[i], dv_col].to_numpy()
+            group2 = df.loc[df[group_col] == groups[j], dv_col].to_numpy()
+
+            n1 = len(group1)
+            n2 = len(group2)
+            mean1 = np.mean(group1)
+            mean2 = np.mean(group2)
+            var1 = np.var(group1, ddof=1)  # Sample variance (ddof=1 is crucial)
+            var2 = np.var(group2, ddof=1)
+
+            # Calculate t-statistic and degrees of freedom
+            t_stat = (mean1 - mean2) / np.sqrt((var1 / n1) + (var2 / n2))
+            df_num = (var1 / n1 + var2 / n2) ** 2
+            df_denom = (var1 / n1) ** 2 / (n1 - 1) + (var2 / n2) ** 2 / (n2 - 1)
+            df_val = df_num / df_denom
+
+            # Calculate p-value using psturng (studentized range distribution)
+            p_val = psturng(np.abs(t_stat) * np.sqrt(2), len(groups), df_val)
+
+            results.append([groups[i], groups[j], mean1 - mean2, t_stat, df_val, p_val])
+
+    results_df = pd.DataFrame(
+        results, columns=["Group1", "Group2", "Mean Diff", "t", "df", "p-value"]
+    )
+    return results_df
+
+
+def one_way_manova(df: pd.DataFrame, group_col: str, dv_cols: list) -> tuple:
+    """
+    Performs a one-way MANOVA and follow-up analyses (if significant).
+
+    Args:
+        df (pd.DataFrame): The pandas DataFrame containing the data.
+        group_col (str): The name of the column containing the group labels
+            (independent variable, e.g., ethnicity).
+        dv_cols (list): A *list* of strings, where each string is the name of a
+            column containing a dependent variable (e.g., subscale scores, total score).
+
+    Returns:
+        tuple:  Returns a tuple.  The first element is the MANOVA results object. If the
+            MANOVA is significant, the second element is a dictionary of ANOVA tables
+            (one for each DV), and the third element is a dictionary of Tukey HSD
+            results (one for each DV). If the MANOVA is not significant, the second
+            and third elements are None.
+    """
+    # Check for sufficient data:  Crucial for MANOVA
+    min_group_size = df.groupby(group_col).size().min()
+    if min_group_size <= len(dv_cols):
+        raise ValueError(
+            f"MANOVA not suitable. The smallest group size ({min_group_size}) must be greater than the number of dependent variables ({len(dv_cols)})."
+        )
+    # Construct the formula string.
+    formula = f"{' + '.join(dv_cols)} ~ C({group_col})"
+
+    # Fit the MANOVA model
+    maov = MANOVA.from_formula(formula, data=df)
+    manova_results = maov.mv_test()
+
+    # Follow-up Analyses (ONLY if MANOVA is significant)
+    anova_tables = {}
+    tukey_results = {}
+
+    # Check overall MANOVA significance.  We'll use Pillai's Trace for robustness.
+    if (
+        manova_results.results[f"C({group_col})"]["stat"].iloc[0, 4] < 0.05
+    ):  # Pillai's Trace, p-value
+        for dv in dv_cols:
+            # One-way ANOVA for each DV
+            model = smf.ols(f"{dv} ~ C({group_col})", data=df).fit()
+            anova_table = sm.stats.anova_lm(model, typ=1)
+            anova_tables[dv] = anova_table
+
+            # Tukey's HSD post-hoc test for each DV
+            tukey_result = pairwise_tukeyhsd(df[dv], df[group_col])
+            tukey_results[dv] = tukey_result
+        return manova_results, anova_tables, tukey_results
+
+    else:
+        # Return None for ANOVA and Tukey results if MANOVA is not significant.
+        return manova_results, None, None
+
+
+def one_way_manova_games_howell(
+    df: pd.DataFrame, group_col: str, dv_cols: list, alpha: float = 0.05
+) -> tuple:
+    """
+    Performs a one-way MANOVA and follow-up analyses (if significant).
+
+    Args:
+        df (pd.DataFrame): The pandas DataFrame containing the data.
+        group_col (str): The name of the column containing the group labels.
+        dv_cols (list): List of dependent variable column names.
+        alpha (float): Significance level (default: 0.05).
+
+    Returns:
+        tuple: (MANOVA results,
+                Dictionary of Welch's ANOVA results (or None),
+                Dictionary of Games-Howell results (or None)).
+    """
+
+    # Check for sufficient data
+    min_group_size = df.groupby(group_col).size().min()
+    if min_group_size <= len(dv_cols):
+        raise ValueError(
+            f"MANOVA not suitable. Smallest group size ({min_group_size}) must be > DVs ({len(dv_cols)})."
+        )
+
+    # 1. MANOVA
+    formula = f"{' + '.join(dv_cols)} ~ C({group_col})"
+    maov = MANOVA.from_formula(formula, data=df)
+    manova_results = maov.mv_test()
+
+    # 2. Follow-up Analyses (ONLY if MANOVA is significant)
+    welch_anova_tables = {}
+    games_howell_results = {}
+
+    # Check overall MANOVA significance (Pillai's Trace)
+    if manova_results.results[f"C({group_col})"]["stat"].iloc[0, 4] < alpha:
+        for dv in dv_cols:
+            # Welch's ANOVA for each DV
+            welch_anova_result = sms.anova_oneway(
+                df[dv], df[group_col], use_var="unequal"
+            )
+            welch_anova_tables[dv] = welch_anova_result
+
+            # Games-Howell post-hoc test *only if* Welch's ANOVA is significant
+            if welch_anova_result.pvalue < alpha:
+                games_howell_results[dv] = games_howell(df, group_col, dv)
+            else:
+                games_howell_results[dv] = None  # Explicitly set to None
+
+        return manova_results, welch_anova_tables, games_howell_results
+    else:
+        return manova_results, None, None
